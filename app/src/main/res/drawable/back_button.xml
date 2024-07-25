@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="302dp" android:height="263dp" android:viewportWidth="302" android:viewportHeight="263">
+    <path android:fillColor="#4B2A18" android:pathData="M151.0,131.5 m-131.5,0 a131.5,131.5 0 1,0 263,0 a131.5,131.5 0 1,0 -263,0"/>
+<!--    create arrow-->
+
+</vector>
+
