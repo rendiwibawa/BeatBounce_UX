@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">BeatBounce</string>
 
-        <string-array name="spinner_items">
-            <item>Item 1</item>
-            <item>Item 2</item>
-            <item>Item 3</item>
-        </string-array>
+    <string-array name="spinner_items">
+        <item>BCA</item>
+        <item>OVO</item>
+        <item>DANA</item>
+    </string-array>
 </resources>
