@@ -1,18 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Header Riwayat Pemesanan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Riwayat Pemesanan"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="43dp" />
+        </LinearLayout>
+
+        <!--  Ini button  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="156.23dp"
+                android:layout_height="55.18dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shadow_background"
+                    android:padding="10dp"
+                    android:layout_marginLeft="2dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_selector"
+                    android:padding="10dp"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:text="SELESAI" />
+            </FrameLayout>
+
+            <View
+                android:layout_width="48.77dp"
+                android:layout_height="0dp" />
+
+            <FrameLayout
+                android:layout_width="156.23dp"
+                android:layout_height="55.18dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shadow_background"
+                    android:padding="10dp"
+                    android:layout_marginLeft="2dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_selector_menunggu"
+                    android:padding="10dp"
+                    android:textColor="@drawable/button_text_color_menunggu"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:text="MENUNGGU" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="51.82dp" />
+
+        <!-- LinearLayout Kotak Utama 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="322.3dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/shape_container"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/baseline_circle_24"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/favorite_button_change"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/favorite_button_change"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginRight="17dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="257.63dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rounded_image"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/studio_dance_jazz" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="10dp"/>
+                <!--                android:src="@drawable/icon_favorit" -->
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="24.38dp"
+                    android:layout_marginLeft="23.32dp"
+                    android:layout_weight="1"
+                    android:text="BP Studio Dance - Jazz Dance"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="30.32dp"
+                    android:layout_height="20.14dp"
+                    android:layout_marginRight="8.3dp"
+                    android:src="@drawable/lokasi"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25.81dp"
+                    android:text="Bogor"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="23.32dp"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="20.14dp"
+                    android:layout_weight="1"
+                    android:text="Rp. 250.000 / jam"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:layout_width="23.32dp"
+                    android:layout_height="20.14dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/bintang" />
+
+
+                <View
+                    android:layout_width="2.12dp"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="27dp"
+                    android:text="4.5/5"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="51.82dp" />
+
+        <!-- LinearLayout Kotak Utama 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="322.3dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/shape_container"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/baseline_circle_24"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/favorite_button_change"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/favorite_button_change"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginRight="17dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="257.63dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rounded_image"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/studio_dance_ballet" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="10dp"/>
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="24.38dp"
+                    android:layout_marginLeft="23.32dp"
+                    android:layout_weight="1"
+                    android:text="BP Studio Dance - Jazz Dance"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="30.32dp"
+                    android:layout_height="20.14dp"
+                    android:layout_marginRight="8.3dp"
+                    android:src="@drawable/lokasi"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25.81dp"
+                    android:text="Bogor"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="23.32dp"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="20.14dp"
+                    android:layout_weight="1"
+                    android:text="Rp. 250.000 / jam"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:layout_width="23.32dp"
+                    android:layout_height="20.14dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/bintang" />
+
+
+                <View
+                    android:layout_width="2.12dp"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="27dp"
+                    android:text="4.5/5"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+
