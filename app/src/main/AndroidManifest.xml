@@ -14,11 +14,13 @@
 <!--        <activity-->
 <!--            android:name=".Pembayaran2"-->
 <!--            android:exported="false" />-->
+
+        <activity android:name=".BookingActivity"></activity>
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".Pembayaran1"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
