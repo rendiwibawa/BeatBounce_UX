@@ -1,27 +1,27 @@
 package com.example.beatbounce;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class StudioPencarianActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private StudioAdapter studioAdapter;
+    private StudioPencarianAdapter studioAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.studio_pencarian);
 
         recyclerView = findViewById(R.id.recycler_view_studios);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        studioAdapter = new StudioAdapter(getStudios());
+        studioAdapter = new StudioPencarianAdapter(getStudios());
         recyclerView.setAdapter(studioAdapter);
 
         int spacing = getResources().getDimensionPixelSize(R.dimen.item_spacing);
@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         List<Studio> studios = new ArrayList<>();
 
         studios.add(new Studio(
-                "BP Studio Dance - Jazz Dance",
+                "Studio Ballroom Dance - XBY",
                 R.drawable.studio_dance_jazz,
-                "Bogor",
-                "Rp. 250.000 / jam",
-                4.5f
+                "Bekasi",
+                "Rp. 150.000 / jam",
+                4.8f
         ));
 
         studios.add(new Studio(
