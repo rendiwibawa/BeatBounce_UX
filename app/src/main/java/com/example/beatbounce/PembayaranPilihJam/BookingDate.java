@@ -1,12 +1,12 @@
-package com.example.beatbounce;
+package com.example.beatbounce.PembayaranPilihJam;
 
 import java.util.List;
 
 public class BookingDate {
     private String text;
-    private List<BookingHour> hours;
+    private List<Hour> hours;
 
-    public BookingDate(String text, List<BookingHour> hours) {
+    public BookingDate(String text, List<Hour> hours) {
         this.text = text;
         this.hours = hours;
     }
@@ -19,11 +19,11 @@ public class BookingDate {
         this.text = text;
     }
 
-    public List<BookingHour> getHours() {
+    public List<Hour> getHours() {
         return hours;
     }
 
-    public void setHours(List<BookingHour> hours) {
+    public void setHours(List<Hour> hours) {
         this.hours = hours;
     }
 }

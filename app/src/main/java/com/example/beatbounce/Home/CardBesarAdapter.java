@@ -1,15 +1,19 @@
-package com.example.beatbounce;
+package com.example.beatbounce.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.example.beatbounce.Detail.DetailActivity;
+import com.example.beatbounce.R;
 
 import java.util.List;
 
@@ -22,19 +26,20 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
 
     @NonNull
     @Override
-    public CardBesarAdapter.CardBesarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CardBesarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_card_besar, parent, false);
-        return new CardBesarAdapter.CardBesarViewHolder(itemView);
+        return new CardBesarViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardBesarAdapter.CardBesarViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CardBesarViewHolder holder, int position) {
         CardBesarItem cardBesarItem = cardBesarItemList.get(position);
         holder.imageView.setImageResource(cardBesarItem.getImageResId());
         holder.textViewTitle.setText(cardBesarItem.getTitle());
         holder.textViewPrice.setText(cardBesarItem.getPrice());
         holder.textViewLocation.setText(cardBesarItem.getLocation());
+        holder.textViewRating.setText(cardBesarItem.getRating());
     }
 
     @Override
@@ -64,11 +69,15 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         CardBesarItem clickedItem = cardBesarItemList.get(position);
-                        // if clicked go to booking page
+                        // Start DetailActivity with the clicked item's details
                         Context context = v.getContext();
-                        Intent intent = new Intent(context, BookingActivity.class);
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("imageResId", clickedItem.getImageResId());
+                        intent.putExtra("title", clickedItem.getTitle());
+                        intent.putExtra("price", clickedItem.getPrice());
+                        intent.putExtra("location", clickedItem.getLocation());
+                        intent.putExtra("rating", clickedItem.getRating());
                         context.startActivity(intent);
-
                     }
                 }
             });

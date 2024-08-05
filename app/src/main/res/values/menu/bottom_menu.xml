@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/bottom_fafourite"
+        android:icon="@drawable/favourite"
+        android:title="Fafourite" />
+
+    <item
+        android:id="@+id/bottom_history"
+        android:icon="@drawable/history"
+        android:title="History" />
+
+    <item
+        android:id="@+id/bottom_chat"
+        android:icon="@drawable/chat"
+        android:title="Chat" />
+
+    <item
+        android:id="@+id/bottom_person"
+        android:icon="@drawable/person"
+        android:title="Account" />
+
+
+</menu>

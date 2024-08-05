@@ -1,4 +1,4 @@
-package com.example.beatbounce;
+package com.example.beatbounce.Home;
 
 // CardItem.java
 public class CardItem {

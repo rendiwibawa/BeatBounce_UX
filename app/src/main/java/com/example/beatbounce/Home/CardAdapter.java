@@ -1,13 +1,18 @@
-package com.example.beatbounce;// CardAdapter.java
+package com.example.beatbounce.Home;// CardAdapter.java
 // CardAdapter.java
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.example.beatbounce.R;
+
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {

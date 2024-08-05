@@ -1,4 +1,4 @@
-package com.example.beatbounce;
+package com.example.beatbounce.Home;
 
 public class CardBesarItem {
     private final int imageResId;
