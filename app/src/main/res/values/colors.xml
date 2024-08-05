@@ -15,5 +15,6 @@
     <color name="colorPrimary">#F49F36</color>
     <color name="putih">#FFFFFF</color>
     <color name="brown">#331D0B</color>
-
+    <color name="orange">#FF9035</color>
+    <color name="light_gray">#E0DDDA</color>
 </resources>
