@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
 
                 >
@@ -42,35 +42,56 @@
 
         </RelativeLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-<!--            card for choosing date-->
-            <!-- res/layout/activity_booking.xml -->
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="256dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginLeft="27dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                >
+                android:layout_gravity="center">
+                <!--            card for choosing date-->
+                <!-- res/layout/activity_booking.xml -->
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="256dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    >
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/DateRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/DateRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <!--            add line-->
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_marginLeft="15dp"
                     />
             </LinearLayout>
-<!--            add line-->
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/white"
-                android:layout_marginLeft="15dp"
-                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/calendar"
+                    android:layout_marginLeft="25dp">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
@@ -106,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="Studio B"
                     android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
 
 
                     ></TextView>
@@ -115,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:text="3 Jadwal tersedia"
                     android:fontFamily="@font/poppins_regular"
-                    android:textColor="@color/white">
+                    android:textColor="@color/black">
 
                 </TextView>
             </LinearLayout>
@@ -180,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:text="Total"
                         android:fontFamily="@font/poppins_regular"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:layout_marginLeft="40dp"
                         />
@@ -190,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:text="Rp. 100.000"
                         android:fontFamily="@font/poppins_regular"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:layout_marginLeft="40dp"
                         />
@@ -202,7 +223,7 @@
                     android:background="@drawable/orange_bg_rounded_25"
                     android:gravity="center"
                     android:text="Bayar"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_gravity="center_vertical|end"
                     android:stateListAnimator="@animator/lift_on_touch"

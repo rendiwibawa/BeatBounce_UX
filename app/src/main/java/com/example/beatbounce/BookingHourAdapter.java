@@ -39,7 +39,7 @@ public class BookingHourAdapter extends RecyclerView.Adapter<BookingHourAdapter.
         // Change the background color based on availability and selection state
         if (bookingHour.isAvailable()) {
             if (selectedHours[position]) {
-                holder.outerLinearLayout.setBackgroundResource(R.drawable.white_bg_rounded_15);
+                holder.outerLinearLayout.setBackgroundResource(R.drawable.green_bg_rounded_15);
             } else {
                 holder.outerLinearLayout.setBackgroundResource(R.drawable.orange_bg_rounded_15);
             }
