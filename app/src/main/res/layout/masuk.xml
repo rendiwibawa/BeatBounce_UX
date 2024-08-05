@@ -27,6 +27,8 @@
         <TextView
             android:layout_marginBottom="10dp"
             android:text="Email"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
@@ -45,6 +47,8 @@
         <TextView
             android:layout_marginBottom="10dp"
             android:text="Kata Sandi"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <EditText
@@ -54,9 +58,11 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/loginButton"
         android:text="Masuk"
         android:textColor="@color/orange"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
+        android:textSize="16dp"
         android:layout_gravity="center"
         android:background="@drawable/buttonlogin"
         android:layout_width="191dp"
@@ -73,12 +79,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="118dp"
-            android:text="belum punya akun?"/>
+            android:textSize="14dp"
+            android:text="Belum punya akun?"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="5dp"
+            android:textSize="14dp"
             android:textColor="@color/orange"
             android:text="Daftar"/>
 

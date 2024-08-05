@@ -15,37 +15,38 @@
         android:layout_height="30dp"
         />
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
         android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/profile_image"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginLeft="26dp"
             android:layout_marginStart="150dp"
             android:background="@drawable/picture_circle"
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/profile_picture"
-            android:scaleType="centerInside"
+
             />
 
         <ImageView
-            android:layout_marginTop="55dp"
-            android:layout_marginStart="-1dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="280dp"
             android:layout_marginLeft="26dp"
             android:background="@drawable/edit_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
             />
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:orientation="vertical"
@@ -55,6 +56,7 @@
         <TextView
             android:layout_marginBottom="10dp"
             android:text="Profil"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -69,13 +71,27 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="Nama"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText
             android:background="@drawable/textfiled"
             android:layout_width="match_parent"
             android:layout_height="57dp"/>
+
+        <ImageView
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="26dp"
+            android:background="@drawable/edit_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -90,13 +106,27 @@
         <TextView
             android:layout_marginBottom="10dp"
             android:text="Email"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText
             android:background="@drawable/textfiled"
             android:layout_width="match_parent"
             android:layout_height="57dp"/>
+
+        <ImageView
+            android:layout_marginTop="-40dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="26dp"
+            android:background="@drawable/edit_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            />
     </LinearLayout>
 
 <!--    <LinearLayout-->
@@ -135,6 +165,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="148dp"
             android:textColor="@color/orange"
+            android:textSize="14dp"
             android:text="Ganti Kata Sandi"/>
 
         <TextView
@@ -143,16 +174,18 @@
             android:layout_marginTop="17dp"
             android:paddingHorizontal="127dp"
             android:textColor="@color/orange"
+            android:textSize="14dp"
             android:text="Hubungi Pusat Bantuan"/>
     </LinearLayout>
 
     <Button
         android:text="Keluar"
         android:textColor="@color/orange"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="100dp"
         android:layout_gravity="center"
         android:background="@drawable/buttonlogin"
         android:layout_width="191dp"
+        android:textSize="16dp"
         android:layout_height="57dp"/>
 
 </LinearLayout>
