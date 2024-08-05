@@ -99,29 +99,29 @@
             android:layout_height="57dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="9dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp">
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="9dp"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginRight="32dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="23dp">-->
 
-        <TextView
-            android:layout_marginBottom="10dp"
-            android:text="Bahasa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:text="Bahasa"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <Spinner
-            android:id="@+id/language_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/textfiled"
-            />
-    </LinearLayout>
+<!--        <Spinner-->
+<!--            android:id="@+id/language_spinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:background="@drawable/textfiled"-->
+<!--            />-->
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
