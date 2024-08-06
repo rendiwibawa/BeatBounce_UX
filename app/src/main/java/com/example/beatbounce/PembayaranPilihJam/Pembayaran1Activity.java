@@ -56,7 +56,8 @@ public class Pembayaran1Activity extends AppCompatActivity {
             paymentMethod.setText(paymentMethodSelected);
 
             // Set up RecyclerView
-            hourAdapter = new HourAdapter(hours);
+            TextView totalPriceTextView = findViewById(R.id.totalPriceTextView);
+            hourAdapter = new HourAdapter(hours, totalPriceTextView);
             recyclerViewWatches.setAdapter(hourAdapter);
             recyclerViewWatches.setLayoutManager(new LinearLayoutManager(this));
         }
