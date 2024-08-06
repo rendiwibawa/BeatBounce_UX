@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ public class StudioFavoritActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view_studios);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+//        Toolbar toolbar = new Toolbar(this);
+//        toolbar.setTitle("Faforite");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         studioAdapter = new StudioAdapter(getStudiosFavorite());
         recyclerView.setAdapter(studioAdapter);
 
@@ -35,24 +40,24 @@ public class StudioFavoritActivity extends AppCompatActivity {
                 "Studio Ballroom Dance - XBY",
                 R.drawable.studio_dance_jazz,
                 "Bekasi",
-                "Rp. 150.000 / jam",
-                4.8f
+                "150.000",
+                "4.8"
         ));
 
         studios.add(new Studio(
                 "TI Studio Dance for Ballet",
                 R.drawable.studio_dance_ballet,
                 "Jakarta",
-                "Rp. 345.000 / jam",
-                4.5f
+                "345.000",
+                "4"
         ));
 
         studios.add(new Studio(
                 "Hiphop Dance",
                 R.drawable.studio_dance_jazz,
                 "Jakarta",
-                "Rp. 255.000 / jam",
-                4f
+                "255.000",
+                "4"
         ));
 
         return studios;

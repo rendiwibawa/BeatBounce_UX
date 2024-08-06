@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.beatbounce.Detail.DetailActivity;
 import com.example.beatbounce.R;
 
 import java.util.ArrayList;
@@ -34,9 +35,9 @@ public class HourListActivity extends AppCompatActivity {
         RecyclerView hourRecyclerView = findViewById(R.id.recyclerView);
         hourRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setTitle("Pilih Jam");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Toolbar toolbar = new Toolbar(this);
+//        toolbar.setTitle("Pilih Jam");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Get data from Intent
         Intent intent1 = getIntent();
@@ -111,8 +112,17 @@ public class HourListActivity extends AppCompatActivity {
 //
         buttonShowSelected.setOnClickListener(v -> {
             Intent intent = new Intent(HourListActivity.this, SelectedHoursActivity.class);
+            intent.putExtra("imageResId", imageResId);
+            intent.putExtra("title", title);
+            intent.putExtra("location", location);
+            intent.putExtra("rating", rating);
+
+
             intent.putExtra("selectedWatches", new ArrayList<>(hourAdapter.getSelectedWatches()));
             startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
+
+
+
         });
     }
 

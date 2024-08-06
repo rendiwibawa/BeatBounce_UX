@@ -38,10 +38,10 @@
                 > <!-- Ini akan membuat semua child view berada di tengah -->
 
                 <ImageView
+                    android:id="@+id/imagSelected"
                     android:layout_width="141dp"
                     android:layout_height="86dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img"
                     android:layout_gravity="center"/> <!-- Ini memastikan ImageView berada di tengah -->
 
                 <LinearLayout
@@ -53,6 +53,7 @@
 
 
                     <TextView
+                        android:id="@+id/namaTempat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
@@ -73,6 +74,7 @@
                             android:layout_height="14.5dp"
                             android:src="@drawable/location"/>
                         <TextView
+                            android:id="@+id/lokasiTempat"
                             android:layout_marginLeft="3.5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -92,6 +94,7 @@
                             android:layout_height="14.5dp"
                             android:src="@drawable/star"/>
                         <TextView
+                            android:id="@+id/rating"
                             android:layout_marginLeft="3.5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
