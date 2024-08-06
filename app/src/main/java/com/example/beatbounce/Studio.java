@@ -5,10 +5,10 @@ public class Studio {
     private int imageResourceId;
     private String location;
     private String price;
-    private float rating;
+    private String rating;
     private boolean isFavorite;
 
-    public Studio(String name, int imageResourceId, String location, String price, float rating) {
+    public Studio(String name, int imageResourceId, String location, String price, String rating) {
         this.name = name;
         this.imageResourceId = imageResourceId;
         this.location = location;
@@ -33,7 +33,7 @@ public class Studio {
         return price;
     }
 
-    public float getRating() {
+    public String getRating() {
         return rating;
     }
 

@@ -41,7 +41,7 @@ public class HistoryActivity extends AppCompatActivity {
                 R.drawable.studio_dance_jazz,
                 "Bogor",
                 "Rp. 250.000 / jam",
-                4.5f
+                "4.5"
         ));
 
         studios.add(new Studio(
@@ -49,7 +49,7 @@ public class HistoryActivity extends AppCompatActivity {
                 R.drawable.studio_dance_ballet,
                 "Jakarta",
                 "Rp. 345.000 / jam",
-                4.8f
+                "4.8"
         ));
 
         return studios;

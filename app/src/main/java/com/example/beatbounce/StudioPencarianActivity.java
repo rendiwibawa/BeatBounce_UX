@@ -35,16 +35,16 @@ public class StudioPencarianActivity extends AppCompatActivity {
                 "Studio Ballroom Dance - XBY",
                 R.drawable.studio_dance_jazz,
                 "Bekasi",
-                "Rp. 150.000 / jam",
-                4.8f
+                "150.000",
+                "4.8"
         ));
 
         studios.add(new Studio(
                 "TI Studio Dance for Ballet",
                 R.drawable.studio_dance_ballet,
                 "Jakarta",
-                "Rp. 345.000 / jam",
-                4.8f
+                "345.000",
+                "4"
         ));
 
         return studios;

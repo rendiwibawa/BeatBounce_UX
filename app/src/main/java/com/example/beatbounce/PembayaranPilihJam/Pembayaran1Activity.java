@@ -25,6 +25,8 @@ public class Pembayaran1Activity extends AppCompatActivity {
     private RecyclerView recyclerViewWatches;
     private HourAdapter hourAdapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +34,9 @@ public class Pembayaran1Activity extends AppCompatActivity {
 
 
         // Create and configure Toolbar programmatically
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setTitle("Pembayaran");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Toolbar toolbar = new Toolbar(this);
+//        toolbar.setTitle("Pembayaran");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         hargaBooking = findViewById(R.id.hargaBooking);
         paymentWatchPrice = findViewById(R.id.paymentWatchPrice);

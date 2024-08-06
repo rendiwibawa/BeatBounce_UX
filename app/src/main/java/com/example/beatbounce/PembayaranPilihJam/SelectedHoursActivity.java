@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.beatbounce.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,10 @@ public class SelectedHoursActivity extends AppCompatActivity {
     private TextView textViewTotalPrice;
     private TextView textViewBiayaSewa;
 
+    private ImageView imageView;
+    private TextView title;
+
+
     private Button buttonPay;
 
     @Override
@@ -32,9 +39,9 @@ public class SelectedHoursActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_hours);
 
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setTitle("Pilih Jam");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        Toolbar toolbar = new Toolbar(this);
+//        toolbar.setTitle("Pilih Jam");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerViewSelected = findViewById(R.id.recyclerViewSelected);
         textViewBiayaSewa = findViewById(R.id.biayaStudio);
@@ -44,7 +51,29 @@ public class SelectedHoursActivity extends AppCompatActivity {
         Button buttonDeleteSelected = findViewById(R.id.buttonDeleteSelected);
         Button buttonAdd = findViewById(R.id.buttonAdd);
 
+
+        ImageView imageViewDetail = findViewById(R.id.imagSelected);
+        TextView namaLokasi = findViewById(R.id.namaTempat);
+        TextView lokasi = findViewById(R.id.lokasiTempat);
+        TextView rating = findViewById(R.id.rating);
+
+        // Get data from Intent
         Intent intent = getIntent();
+        int imageResId = intent.getIntExtra("imageResId", -1);
+        String title = intent.getStringExtra("title");
+        String price = intent.getStringExtra("price");
+        String location = intent.getStringExtra("location");
+        String rating1 = intent.getStringExtra("rating");
+
+        // Set data to views
+        if (imageResId != -1) {
+            imageViewDetail.setImageResource(imageResId);
+        }
+        namaLokasi.setText(title);
+        lokasi.setText(location);
+        rating.setText(rating1);
+
+
         selectedHours = (ArrayList<Hour>) intent.getSerializableExtra("selectedWatches");
 
         adapter = new HourAdapter(selectedHours);
