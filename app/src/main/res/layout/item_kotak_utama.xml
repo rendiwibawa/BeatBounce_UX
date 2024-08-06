@@ -104,7 +104,7 @@
         <ImageView
             android:layout_width="23.32dp"
             android:layout_height="20.14dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginRight="23dp"
             android:src="@drawable/bintang"/>
 
         <View
@@ -115,7 +115,7 @@
             android:id="@+id/studio_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="27dp"
+            android:layout_marginRight="25dp"
             android:text="4.5/5"
             android:textColor="@color/black"
             android:textSize="13dp" />

@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Riwayat Pemesanan"
+                android:text="Pencarian"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </RelativeLayout>
@@ -50,7 +50,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
+            android:paddingStart="0dp"
             android:layout_marginBottom="14dp">
             <ImageView
                 android:layout_width="24dp"
@@ -59,10 +59,11 @@
                 android:layout_marginStart="30dp"
                 android:background="@drawable/baseline_search_24"/>
             <EditText
-                android:layout_width="387dp"
+                android:id="@+id/editTextDanceBogor"
+                android:layout_width="345dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:text="Dance Bogor"
+                android:hint="Dance Bogor"
                 android:paddingStart="60dp"
                 android:background="@drawable/search_bar"/>
         </FrameLayout>
@@ -80,7 +81,7 @@
 
                 <!-- Button SEMUA -->
                 <FrameLayout
-                    android:layout_width="120dp"
+                    android:layout_width="110dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="8dp">
 
@@ -103,7 +104,7 @@
 
                 <!-- Button TERDEKAT -->
                 <FrameLayout
-                    android:layout_width="120dp"
+                    android:layout_width="110dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="8dp">
 
@@ -126,7 +127,7 @@
 
                 <!-- Button TERMURAH -->
                 <FrameLayout
-                    android:layout_width="120dp"
+                    android:layout_width="110dp"
                     android:layout_height="50dp">
 
                     <View

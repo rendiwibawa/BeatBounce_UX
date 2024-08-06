@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StudioFavoritActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private StudioAdapter studioAdapter;
+    private StudioFavoritAdapter studioAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class StudioFavoritActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view_studios);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        studioAdapter = new StudioAdapter(getStudiosFavorite());
+        studioAdapter = new StudioFavoritAdapter(getStudiosFavorite());
         recyclerView.setAdapter(studioAdapter);
 
         int spacing = getResources().getDimensionPixelSize(R.dimen.item_spacing);
