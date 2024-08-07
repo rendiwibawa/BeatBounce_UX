@@ -76,7 +76,8 @@ public class SelectedHoursActivity extends AppCompatActivity {
 
         selectedHours = (ArrayList<Hour>) intent.getSerializableExtra("selectedWatches");
 
-        adapter = new HourAdapter(selectedHours);
+
+        adapter = new HourAdapter(selectedHours, textViewTotalPrice);
         recyclerViewSelected.setAdapter(adapter);
         recyclerViewSelected.setLayoutManager(new LinearLayoutManager(this));
 

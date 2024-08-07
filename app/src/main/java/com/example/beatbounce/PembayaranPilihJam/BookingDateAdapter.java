@@ -16,7 +16,7 @@ import java.util.List;
 public class BookingDateAdapter extends RecyclerView.Adapter<BookingDateAdapter.BookingViewHolder> {
 
     private List<BookingDate> bookingList;
-    private int selectedPosition = -1; // Updated to -1 to handle no selection
+    private int selectedPosition = 0; // Updated to -1 to handle no selection
     private OnDateClickListener listener;
 
     public BookingDateAdapter(List<BookingDate> bookingList) {
@@ -31,7 +31,7 @@ public class BookingDateAdapter extends RecyclerView.Adapter<BookingDateAdapter.
     @Override
     public BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_main, parent, false);
+                .inflate(R.layout.item_date, parent, false);
         return new BookingViewHolder(view);
     }
 
@@ -53,6 +53,11 @@ public class BookingDateAdapter extends RecyclerView.Adapter<BookingDateAdapter.
     public int getItemCount() {
         return bookingList.size();
     }
+
+    public OnDateClickListener getOnDateClickListener() {
+        return listener;
+    }
+
 
     public class BookingViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
