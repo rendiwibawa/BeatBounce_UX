@@ -23,7 +23,7 @@
         android:title="Chat" />
 
     <item
-        android:id="@+id/bottom_person"
+        android:id="@+id/botton_account"
         android:icon="@drawable/person"
         android:title="Account" />
 

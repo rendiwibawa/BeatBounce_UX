@@ -13,15 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.beatbounce.Detail.DetailActivity;
-import com.example.beatbounce.Home.CardBesarItem;
 
 import java.util.List;
 
-public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioViewHolder> {
+public class StudioFavoritAdapter extends RecyclerView.Adapter<StudioFavoritAdapter.StudioViewHolder> {
 
     private static List<Studio> studioList;
 
-    public StudioAdapter(List<Studio> studios) {
+    public StudioFavoritAdapter(List<Studio> studios) {
         this.studioList = studios;
     }
 
@@ -41,23 +40,27 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
         holder.ratingTextView.setText(studio.getRating());
         holder.imageView.setImageResource(studio.getImageResourceId());
 
-        holder.favoriteButton.setSelected(studio.isFavorite());
+        // Set the initial state of the favorite button
+        if (studio.isFavorite()) {
+            holder.favoriteButton.setSelected(true);
+            holder.favoriteButton.setBackgroundResource(R.drawable.baseline_favorite_shadow_24);
+        } else {
+            holder.favoriteButton.setSelected(false);
+            holder.favoriteButton.setBackgroundResource(R.drawable.baseline_favorite_red_24);
+        }
 
+        // Handle favorite button click
         holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isSelected = !holder.favoriteButton.isSelected();
                 holder.favoriteButton.setSelected(isSelected);
                 studio.setFavorite(isSelected);
-                // Update only the favorite button state without affecting the entire item view
-                holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_red_24 : R.drawable.baseline_favorite_shadow_24);
-
-
+                // Update the button's background
+                holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_shadow_24 : R.drawable.baseline_favorite_red_24);
             }
         });
-
     }
-
 
     @Override
     public int getItemCount() {
