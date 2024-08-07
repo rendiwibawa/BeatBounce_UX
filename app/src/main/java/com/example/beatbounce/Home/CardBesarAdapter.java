@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.beatbounce.Detail.DetailActivity;
+import com.example.beatbounce.Detail.GidDetailActivity;
 import com.example.beatbounce.R;
 
 import java.util.List;
@@ -71,7 +72,9 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
                         CardBesarItem clickedItem = cardBesarItemList.get(position);
                         // Start DetailActivity with the clicked item's details
                         Context context = v.getContext();
-                        Intent intent = new Intent(context, DetailActivity.class);
+//                        Intent intent = new Intent(context, DetailActivity.class);
+                        Intent intent = new Intent(context, GidDetailActivity.class);
+
                         intent.putExtra("imageResId", clickedItem.getImageResId());
                         intent.putExtra("title", clickedItem.getTitle());
                         intent.putExtra("price", clickedItem.getPrice());
