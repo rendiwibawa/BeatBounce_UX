@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -132,16 +133,33 @@ public class HourListActivity extends AppCompatActivity {
             });
         }
 
-
         buttonShowSelected.setOnClickListener(v -> {
-            Intent intent = new Intent(HourListActivity.this, SelectedHoursActivity.class);
             // Get the selected hours from the current date
             ArrayList<Hour> selectedHours = new ArrayList<>(hourAdapter.getSelectedWatches());
-            intent.putExtra("selectedWatches", selectedHours);
-            // Get the total price from the HourAdapter
-            double totalPrice = hourAdapter.getTotalPrice();
-            intent.putExtra("totalPrice", totalPrice);
-            startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
+
+            if (selectedHours.isEmpty()) {
+                // Show an alert if no hours are selected
+                new AlertDialog.Builder(HourListActivity.this)
+                        .setTitle("Error")
+                        .setMessage("Please select at least one hour.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            // Dismiss the dialog
+                            dialog.dismiss();
+                        })
+                        .show();
+            } else {
+                Intent intent = new Intent(HourListActivity.this, SelectedHoursActivity.class);
+                intent.putExtra("imageResId", imageResId);
+                intent.putExtra("title", title);
+                intent.putExtra("location", location);
+                intent.putExtra("rating", rating);
+                intent.putExtra("selectedWatches", selectedHours);
+                // Get the total price from the HourAdapter
+                double totalPrice = hourAdapter.getTotalPrice();
+                intent.putExtra("totalPrice", totalPrice);
+
+                startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
+            }
         });
 
     }
