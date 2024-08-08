@@ -33,6 +33,7 @@
                     android:outAnimation="@android:anim/slide_out_right">
 
                     <ImageView
+                        android:id="@+id/imageViewDetail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -71,6 +72,7 @@
 
             <!-- Title and rating section -->
             <TextView
+                android:id="@+id/textViewTitleDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
@@ -87,6 +89,7 @@
                 android:paddingEnd="16dp">
 
                 <TextView
+                    android:id="@+id/textViewRatingDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4.6"
@@ -344,6 +347,7 @@
                     android:textColor="@android:color/black" />
 
                 <TextView
+                    android:id="@+id/textViewLocationDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jl. Raya cihuy bro No.19 Kota Tua, Kab. Bogor Jawa Barat"
@@ -415,6 +419,7 @@
         android:layout_gravity="bottom">
 
         <TextView
+            android:id="@+id/textViewPriceDetail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -425,6 +430,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/fabBooking"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="#FF8E33"
