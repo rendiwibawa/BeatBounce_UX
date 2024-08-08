@@ -18,7 +18,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.detail_page);
 
         Toolbar toolbar = new Toolbar(this);
         toolbar.setTitle("Pilih Jam");

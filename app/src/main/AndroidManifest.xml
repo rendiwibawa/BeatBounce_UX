@@ -20,13 +20,8 @@
         <activity
             android:name=".Login.RegisterActivity"
             android:exported="false" />
-<!--        <activity-->
-
-<!--            android:name=".Home.HomeActivity"-->
-<!--            android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt;-->
-        <!-- android:name=".History.HistoryActivity" -->
-        <!-- android:exported="false" /> -->
-        <activity android:name=".Detail.DetailActivity" />
+        <activity android:name=".Detail.DetailActivity"
+            android:exported="false"/>
         <activity
             android:name=".PembayaranPilihJam.Pembayaran1Activity"
             android:exported="false" />
