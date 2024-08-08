@@ -108,6 +108,8 @@ public class HourListActivity extends AppCompatActivity {
 //
         BookingDateAdapter dateAdapter = new BookingDateAdapter(bookingList);
 
+
+
         dateAdapter.setOnDateClickListener(new BookingDateAdapter.OnDateClickListener() {
             @Override
             public void onDateClick(List<Hour> hours) {
