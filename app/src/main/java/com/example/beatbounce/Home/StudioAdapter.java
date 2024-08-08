@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.beatbounce.Detail.GidDetailActivity;
+import com.example.beatbounce.Detail.DetailActivity;
 import com.example.beatbounce.R;
 
 import java.util.ArrayList;
@@ -71,7 +71,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
                         Studio clickedStudio = studioListBesar.get(position);
                         // Start DetailActivity with the clicked item's details
                         Context context = v.getContext();
-                        Intent intent = new Intent(context, GidDetailActivity.class);
+                        Intent intent = new Intent(context, DetailActivity.class);
 
                         intent.putExtra("imageResId", clickedStudio.getImageResource());
                         intent.putExtra("title", clickedStudio.getName());

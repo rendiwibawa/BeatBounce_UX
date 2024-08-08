@@ -27,6 +27,7 @@
         <!-- android:name=".History.HistoryActivity" -->
         <!-- android:exported="false" /> -->
         <activity android:name=".Detail.DetailActivity" />
+        <activity android:name=".Detail.ReviewActivity" />
         <activity
             android:name=".PembayaranPilihJam.Pembayaran1Activity"
             android:exported="false" />

@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.beatbounce.Detail.DetailActivity;
-import com.example.beatbounce.Home.CardBesarItem;
 
 import java.util.List;
 public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioViewHolder> {

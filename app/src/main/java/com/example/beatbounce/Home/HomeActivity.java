@@ -43,7 +43,16 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.DateRecyclerView);
+        searchLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, StudioPencarianActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         RecyclerView recyclerViewBesar = findViewById(R.id.recyclerViewBesar);
         recyclerViewBesar.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -83,8 +92,8 @@ public class HomeActivity extends AppCompatActivity {
 
 //    kecil punya
 
-        RecyclerView recyclerView = findViewById(R.id.newPlaceRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        RecyclerView recyclerViewKecil = findViewById(R.id.newPlaceRecyclerView);
+        recyclerViewKecil.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         List<CardItem> cardItemList = new ArrayList<>();
         cardItemList.add(new CardItem(R.drawable.studio, "Studio A", "Rp 150.000 / Jam"));
@@ -95,8 +104,37 @@ public class HomeActivity extends AppCompatActivity {
         cardItemList.add(new CardItem(R.drawable.studio, "Studio C", "Rp 200.000 / Jam"));
 
         CardAdapter adapter = new CardAdapter(cardItemList);
-        recyclerView.setAdapter(adapter);
+        recyclerViewKecil.setAdapter(adapter);
 
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.bottom_home:
+                    return true;
+                case R.id.bottom_fafourite:
+                    startActivity(new Intent(getApplicationContext(), StudioFavoritActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+                case R.id.bottom_history:
+                    startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+                case R.id.bottom_search:
+                    startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+//                case R.id.botton_account:
+//                    startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
+//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+//                    finish();
+//                    return true;
+            }
+            return false;
+        });
     }
 }
