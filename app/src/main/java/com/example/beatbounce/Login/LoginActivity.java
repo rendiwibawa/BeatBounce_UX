@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         spannableString.setSpan(new CustomTypefaceSpan(ResourcesCompat.getFont(this, R.font.poppins_bold)), 18, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.textRegister.setText(spannableString);
 
-        binding.btnLogin.setOnClickListener(this::onClick);
+//        binding.btnLogin.setOnClickListener(this::onClick);
 
         binding.textRegister.setOnClickListener(v -> {
             Intent intent = new Intent(this, RegisterActivity.class);
