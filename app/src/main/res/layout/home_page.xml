@@ -156,7 +156,7 @@
                 android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/DateRecyclerView"
+                    android:id="@+id/newPlaceRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"

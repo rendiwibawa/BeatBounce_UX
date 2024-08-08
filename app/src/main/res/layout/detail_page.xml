@@ -138,23 +138,12 @@
                 android:layout_marginTop="8dp">
 
                 <!-- Tags: Add more tags as needed -->
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:padding="4dp"
-                    android:background="@drawable/spinner_background"
-                    android:text="Dance"
-                    android:textColor="@android:color/black" />
+                    android:orientation="horizontal"
+                    android:id="@+id/recyclerViewTagDetail" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:padding="4dp"
-                    android:background="@drawable/spinner_background"
-                    android:text="Balet"
-                    android:textColor="@android:color/black" />
             </LinearLayout>
 
             <View
@@ -185,6 +174,7 @@
                         android:textColor="@android:color/black" />
 
                     <TextView
+                        android:id="@+id/textViewOwnerDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Gideon Giyanto"
@@ -239,28 +229,13 @@
                 android:paddingEnd="16dp"
                 android:layout_marginTop="8dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_launcher_foreground" />
+                <!-- Facility: Add more facilities on recyclerview -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/recyclerViewFacilityDetail" />
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_search" />
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_launcher_background" />
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_search" />
             </LinearLayout>
 
             <View
@@ -436,7 +411,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/fabBooking"
+            android:id="@+id/bookingButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="#FF8E33"

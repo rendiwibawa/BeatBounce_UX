@@ -3,19 +3,22 @@ package com.example.beatbounce.Detail;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.beatbounce.PembayaranPilihJam.HourListActivity;
-import com.example.beatbounce.PembayaranPilihJam.SelectedHoursActivity;
 import com.example.beatbounce.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 import android.widget.ViewFlipper;
 import android.content.Intent;
 import android.widget.Button;
+
+import java.util.List;
 
 
 public class GidDetailActivity extends AppCompatActivity {
@@ -27,6 +30,10 @@ public class GidDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_page);
+
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setTitle("Detail Page");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewFlipper = findViewById(R.id.viewFlipper);
 
@@ -49,27 +56,14 @@ public class GidDetailActivity extends AppCompatActivity {
         // To programmatically trigger the click event and show next view
         viewFlipper.performClick(); // This will trigger the OnClickListener
 
-        // Find the booking button
-//        bookingButton = findViewById(R.id.fabBooking);
-//
-//        // Set an OnClickListener for the booking button
-//        bookingButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Create an Intent to start ActivityChooseHour
-//                Intent intent = new Intent(GidDetailActivity.this, SelectedHoursActivity.class);
-//
-//                // Start the ActivityChooseHour
-//                startActivity(intent);
-//            }
-//        });
 
         ImageView imageViewDetail = findViewById(R.id.imageViewDetail);
         TextView textViewTitleDetail = findViewById(R.id.textViewTitleDetail);
         TextView textViewPriceDetail = findViewById(R.id.textViewPriceDetail);
         TextView textViewLocationDetail = findViewById(R.id.textViewLocationDetail);
         TextView textViewRatingDetail = findViewById(R.id.textViewRatingDetail);
-        MaterialButton button = (MaterialButton) findViewById(R.id.fabBooking);
+        TextView textViewOwnerDetail = findViewById(R.id.textViewOwnerDetail);
+        MaterialButton bookButton = (MaterialButton) findViewById(R.id.bookingButton);
 
         // Get data from Intent
         Intent intent = getIntent();
@@ -77,7 +71,12 @@ public class GidDetailActivity extends AppCompatActivity {
         String title = intent.getStringExtra("title");
         String price = intent.getStringExtra("price");
         String location = intent.getStringExtra("location");
-        String rating = intent.getStringExtra("rating");
+        double rating = intent.getDoubleExtra("rating", 0.0);
+        String owner = intent.getStringExtra("owner");
+
+
+
+
 
         // Set data to views
         if (imageResId != -1) {
@@ -86,9 +85,11 @@ public class GidDetailActivity extends AppCompatActivity {
         textViewTitleDetail.setText(title);
         textViewPriceDetail.setText(price);
         textViewLocationDetail.setText(location);
-        textViewRatingDetail.setText(rating);
+        textViewRatingDetail.setText(String.valueOf(rating));
+        textViewOwnerDetail.setText(owner);
 
-        button.setOnClickListener(v -> {
+
+        bookButton.setOnClickListener(v -> {
             Intent bookingIntent = new Intent(GidDetailActivity.this, HourListActivity.class);
 
             bookingIntent.putExtra("imageResId", imageResId);
@@ -117,12 +118,43 @@ public class GidDetailActivity extends AppCompatActivity {
                 intent.putExtra("rating", rating);
                 intent.putExtra("imageResId", imageResId);
 
+
                 // Start the ReviewActivity
                 startActivity(intent);
             }
         });
 
+        // Find the RecyclerView
+        RecyclerView recyclerViewFacility = findViewById(R.id.recyclerViewFacilityDetail);
 
+// Set its layout manager
+        recyclerViewFacility.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+// Get the facility images from Intent
+        // Get the facility images from Intent
+        List<Integer> facilityImages = (List<Integer>) getIntent().getSerializableExtra("facilities");
+
+        if (facilityImages != null) {
+            // Set its adapter
+            FacilityAdapter facilityAdapter = new FacilityAdapter(facilityImages);
+            recyclerViewFacility.setAdapter(facilityAdapter);
+        }
+
+        // Find the RecyclerView for genres
+        RecyclerView recyclerViewGenre = findViewById(R.id.recyclerViewTagDetail);
+
+// Set its layout manager
+        recyclerViewGenre.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+// Get the genre names from Intent
+        List<String> genreNames = (List<String>) getIntent().getSerializableExtra("genres");
+
+        if (genreNames != null) {
+            // Create an instance of GenreAdapter
+            GenreAdapter genreAdapter = new GenreAdapter(genreNames);
+
+            // Set the adapter to the RecyclerView
+            recyclerViewGenre.setAdapter(genreAdapter);
+        }
     }
-
 }

@@ -3,11 +3,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center">
-
+    android:gravity="center"
+    android:layout_marginRight="10dp"
+    >
     <ImageView
-        android:id="@+id/icon_image"
+        android:id="@+id/facility_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/wifi" /> <!-- Use a default icon initially -->
+        android:src="@drawable/wifi" />
+
+
 </LinearLayout>

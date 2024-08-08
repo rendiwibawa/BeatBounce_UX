@@ -3,11 +3,21 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="@drawable/orange_bg_rounded_25"
+    android:gravity="center"
+    android:layout_marginRight="10dp">
 
-    <ImageView
-        android:id="@+id/icon_image"
+    <TextView
+        android:id="@+id/genre_name"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:src="@drawable/samba" /> <!-- Use a default icon initially -->
+        android:layout_height="wrap_content"
+        android:text="Genre"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+       />
+/> <!-- Use a default icon initially -->
 </LinearLayout>

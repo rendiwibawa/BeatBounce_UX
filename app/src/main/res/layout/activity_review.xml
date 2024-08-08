@@ -118,7 +118,7 @@
 
                 <View
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <TextView
@@ -183,52 +183,89 @@
                     android:textColor="@android:color/black"
                     android:layout_marginBottom="8dp"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="30dp">
+
+                </View>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
 
                     <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="4dp"
-                        android:background="@drawable/img_jazz_studio"
-                        android:contentDescription="Image 1"/>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/person"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="User Avatar"/>
 
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="4dp"
-                        android:background="@drawable/background_gray"
-                        android:contentDescription="Image 2"/>
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="4dp"
-                        android:background="@drawable/background_green"
-                        android:contentDescription="Image 3"/>
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bottom_background"
-                        android:contentDescription="Image 4"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lihat Semua..."
-                    android:textColor="#FF8E33"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="8dp"
-                    android:clickable="true"
-                    android:focusable="true"/>
+                    android:text="Lorem ipsum dolor sit amet consectetur. Non egestas cursus consectetur quisque est..."
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginBottom="30dp">
+
+                </View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/person"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="User Avatar"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lorem ipsum"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Lorem ipsum dolor sit amet consectetur. Non egestas cursus consectetur quisque est..."
+                    android:textColor="@android:color/black" />
+
+                <!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Lihat Semua..."-->
+<!--                    android:textColor="#FF8E33"-->
+<!--                    android:layout_gravity="end"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"/>-->
             </LinearLayout>
 
             <!-- Additional reviews can follow the same structure as the first review -->

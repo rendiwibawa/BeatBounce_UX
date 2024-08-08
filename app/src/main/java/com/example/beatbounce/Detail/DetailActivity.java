@@ -24,7 +24,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView textViewPriceDetail = findViewById(R.id.textViewPriceDetail);
         TextView textViewLocationDetail = findViewById(R.id.textViewLocationDetail);
         TextView textViewRatingDetail = findViewById(R.id.textViewRatingDetail);
-        FloatingActionButton fabBooking = findViewById(R.id.fabBooking);
+        FloatingActionButton fabBooking = findViewById(R.id.bookingButton);
 
         // Get data from Intent
         Intent intent = getIntent();
