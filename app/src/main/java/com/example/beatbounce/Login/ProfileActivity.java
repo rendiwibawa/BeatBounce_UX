@@ -1,88 +1,117 @@
 package com.example.beatbounce.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.databinding.ActivityProfileBinding;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private ActivityProfileBinding binding;
-
     private TextView tvChangePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Toolbar toolbar = new Toolbar(this);
+        // Setup toolbar
+//        android.widget.Toolbar toolbar = new Toolbar(this);
+//        setSupportActionBar(findViewById(R.id.toolbar));
+        getSupportActionBar().setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_profile);
+        setContentView(binding.getRoot());
 
         tvChangePassword = findViewById(R.id.tv_change_password);
 
-        TextView input_name = findViewById(R.id.et_name);
-        TextView email_user = findViewById(R.id.et_email);
-//        TextView input_nick_name = findViewById(R.id.et_name);
+        // Load and set user data
+        loadUserData();
 
-
-        Intent intent = getIntent();
-        String full_name = intent.getStringExtra("FULL_NAME");
-        String email_users = intent.getStringExtra("EMAIL");
-        String nick_name = intent.getStringExtra("EMAIL_PREFIX");
-        String email_user_login = intent.getStringExtra("EMAIL");
-
-        if (full_name != null && !full_name.isEmpty()) {
-            input_name.setText(full_name);
-        } else if (nick_name != null && !nick_name.isEmpty()) {
-            input_name.setText(nick_name);
-        }
-        email_user.setText(email_users);
-        email_user.setText(email_user_login);
-
+        // Initialize views and set listeners
         initView();
     }
 
-    private void initView() {
-        binding.btnSave.setOnClickListener(v -> {
-            String name = binding.etName.getText().toString();
-            String email = binding.etEmail.getText().toString();
-            boolean isValid = true;
+    private void loadUserData() {
+        // Get data from SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String fullName = sharedPref.getString("FULL_NAME", "");
+        String email = sharedPref.getString("EMAIL", "");
+        String nickname = sharedPref.getString("EMAIL_PREFIX", "");
 
-            if (email.isEmpty()) {
-                binding.etEmail.setError(getString(R.string.error_email_empty));
-                isValid = false;
-            }
-
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                binding.etEmail.setError(getString(R.string.error_email_invalid));
-                isValid = false;
-            }
-
-            if (name.isEmpty()) {
-                binding.etName.setError(getString(R.string.error_name_empty));
-                isValid = false;
-            }
-
-            if (isValid) {
-                Toast.makeText(this, getString(R.string.text_profile_saved), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        binding.btnBack.setOnClickListener(v -> finish());
-
-        tvChangePassword.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ChangePasswordActivity.class);
-            startActivity(intent);
-        });
+        // Set data to TextViews
+        binding.etName.setText(fullName.isEmpty() ? nickname : fullName);
+        binding.etEmail.setText(email);
     }
+
+    private void initView() {
+        binding.btnSave.setOnClickListener(v -> saveProfile());
+        tvChangePassword.setOnClickListener(v -> startActivity(new Intent(this, ChangePasswordActivity.class)));
+    }
+
+    private void saveProfile() {
+        String name = binding.etName.getText().toString();
+        String email = binding.etEmail.getText().toString();
+
+        if (!validateInput(name, email)) {
+            return;
+        }
+
+        String emailPrefix = email.split("@")[0];
+        SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("FULL_NAME", name);
+        editor.putString("EMAIL", email);
+        editor.putString("EMAIL_PREFIX", emailPrefix);
+        editor.apply();
+
+        // Show success message
+        Toast.makeText(ProfileActivity.this, "Profile saved successfully", Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean validateInput(String name, String email) {
+        boolean isValid = true;
+
+        if (name.isEmpty()) {
+            binding.etName.setError(getString(R.string.error_name_empty));
+            isValid = false;
+        }
+
+        if (email.isEmpty()) {
+            binding.etEmail.setError(getString(R.string.error_email_empty));
+            isValid = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.etEmail.setError(getString(R.string.error_email_invalid));
+            isValid = false;
+        }
+
+        if (!isValid) {
+            // Show error message
+            Toast.makeText(ProfileActivity.this, "Failed to save profile", Toast.LENGTH_SHORT).show();
+        }
+
+        return isValid;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

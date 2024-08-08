@@ -1,6 +1,7 @@
 package com.example.beatbounce.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -12,20 +13,18 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
-import com.example.beatbounce.databinding.ActivityLoginBinding;
 
-
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.R;
+import com.example.beatbounce.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Hapus baris berikut:
-        // setContentView(R.layout.activity_login);
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -33,10 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         initView();
     }
 
-
     private void initView() {
-
-
         SpannableString spannableString = new SpannableString(getString(R.string.text_register));
         spannableString.setSpan(new UnderlineSpan(), 18, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new ForegroundColorSpan(ResourcesCompat.getColor(getResources(), R.color.orange, null)), 18, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -84,17 +80,17 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (isValid) {
+            String emailPrefix = email.split("@")[0];
+            SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
 
-            String[] emailParts = email.split("@gmail.com");
-            if (emailParts.length > 0) {
-                String emailPrefix = emailParts[0];
+            editor.putString("EMAIL", email);
+            editor.putString("EMAIL_PREFIX", emailPrefix);
+            editor.putString("FULL_NAME", emailPrefix);
+            editor.apply();
 
-                // Kirim emailPrefix ke aktivitas lain
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                intent.putExtra("EMAIL_PREFIX", emailPrefix);
-                intent.putExtra("EMAIL", email);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
         }
     }
 }

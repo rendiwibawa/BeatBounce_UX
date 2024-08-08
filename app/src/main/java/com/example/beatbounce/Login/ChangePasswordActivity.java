@@ -1,7 +1,10 @@
 package com.example.beatbounce.Login;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,9 +17,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
     // Membuat variabel binding dengan tipe data ActivityChangePasswordBinding
     private ActivityChangePasswordBinding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setTitle("Pilih Jam");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Menginisialisasi variabel binding dengan memanggil metode inflate() dari ActivityChangePasswordBinding
         binding = ActivityChangePasswordBinding.inflate(getLayoutInflater());
         // Menampilkan layout yang diinginkan
@@ -35,8 +42,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
             dialog.show(getSupportFragmentManager(), dialog.getTag());
         });
 
-        // Menambahkan aksi klik pada Button btnBack
-        binding.btnBack.setOnClickListener(v -> finish()); // Menutup halaman
 
         // Menambahkan aksi klik pada Button btnSave
         binding.btnSave.setOnClickListener(v -> {
@@ -93,5 +98,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

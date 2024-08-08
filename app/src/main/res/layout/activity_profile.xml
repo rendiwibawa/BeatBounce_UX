@@ -17,15 +17,15 @@
         android:layout_height="wrap_content"
         android:padding="26dp">
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/cd_back_button"
-            android:src="@drawable/ic_circle_arrow_left"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_back"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:contentDescription="@string/cd_back_button"-->
+<!--            android:src="@drawable/ic_circle_arrow_left"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_profile"
@@ -36,7 +36,7 @@
             android:src="@drawable/imager_avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_back"
+
             tools:ignore="MissingClass" />
 
         <ImageButton
@@ -225,7 +225,7 @@
                 android:importantForAccessibility="no"
                 android:background="@drawable/bg_button_shadow" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
@@ -234,7 +234,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:fontFamily="@font/poppins_bold"
+                android:background="@drawable/rounded_25"
                 android:text="@string/action_save"
+                android:stateListAnimator="@animator/lift_on_touch"
                 android:insetTop="0dp"
                 android:includeFontPadding="false"
                 android:insetBottom="0dp"

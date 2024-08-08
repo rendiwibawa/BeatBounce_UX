@@ -189,7 +189,7 @@
                 android:importantForAccessibility="no"
                 android:background="@drawable/bg_button_shadow" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
@@ -198,6 +198,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:fontFamily="@font/poppins_bold"
+                android:background="@drawable/rounded_25"
                 android:text="@string/action_register"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"

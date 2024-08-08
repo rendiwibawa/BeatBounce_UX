@@ -26,8 +26,12 @@
 <!--            android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt;-->
         <!-- android:name=".History.HistoryActivity" -->
         <!-- android:exported="false" /> -->
-        <activity android:name=".Detail.DetailActivity" />
         <activity android:name=".Detail.ReviewActivity" />
+        <activity
+            android:name=".Home.HomeActivity"
+            android:exported="false" />
+        <activity android:name=".Detail.DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".PembayaranPilihJam.Pembayaran1Activity"
             android:exported="false" />
@@ -47,7 +51,7 @@
             android:name=".StudioPencarianActivity"
             android:exported="false" />
         <activity
-            android:name=".Home.HomeActivity"
+            android:name=".Login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

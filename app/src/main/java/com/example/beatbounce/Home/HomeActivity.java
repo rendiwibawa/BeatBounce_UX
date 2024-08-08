@@ -1,6 +1,7 @@
 package com.example.beatbounce.Home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.beatbounce.History.HistoryActivity;
+import com.example.beatbounce.Login.ProfileActivity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.StudioFavoritActivity;
 import com.example.beatbounce.StudioPencarianActivity;
@@ -27,6 +29,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private LinearLayout searchLocation;
+    private TextView userTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home_page);
 
         searchLocation = findViewById(R.id.searchLocation);
+        userTextView = findViewById(R.id.userTextView);
+
+        SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String userName = sharedPref.getString("FULL_NAME", "User");
+
+        userTextView.setText(userName);
 
         searchLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,11 +137,12 @@ public class HomeActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
-//                case R.id.botton_account:
-//                    startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
-//                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//                    finish();
-//                    return true;
+
+                case R.id.botton_account:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
             }
             return false;
         });
