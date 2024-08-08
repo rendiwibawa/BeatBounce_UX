@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
     @Override
     public CardBesarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_card_besar, parent, false);
+                .inflate(R.layout.item_kotak_utama, parent, false);
         return new CardBesarViewHolder(itemView);
     }
 
@@ -40,6 +41,22 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
         holder.textViewPrice.setText(cardBesarItem.getPrice());
         holder.textViewLocation.setText(cardBesarItem.getLocation());
         holder.textViewRating.setText(cardBesarItem.getRating());
+
+        holder.favoriteButton.setSelected(cardBesarItem.isFavorite());
+
+        holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isSelected = !holder.favoriteButton.isSelected();
+                holder.favoriteButton.setSelected(isSelected);
+                cardBesarItem.setFavorite(isSelected);
+                // Update only the favorite button state without affecting the entire item view
+                holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_red_24 : R.drawable.baseline_favorite_shadow_24);
+
+
+            }
+        });
+
     }
 
     @Override
@@ -54,13 +71,16 @@ public class CardBesarAdapter extends RecyclerView.Adapter<CardBesarAdapter.Card
         public TextView textViewLocation;
         public TextView textViewRating;
 
+        Button favoriteButton;
+
         public CardBesarViewHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
-            textViewTitle = itemView.findViewById(R.id.studioName);
-            textViewPrice = itemView.findViewById(R.id.priceText);
-            textViewLocation = itemView.findViewById(R.id.locationText);
-            textViewRating = itemView.findViewById(R.id.ratingText);
+            imageView = itemView.findViewById(R.id.studio_image);
+            textViewTitle = itemView.findViewById(R.id.studio_name);
+            textViewPrice = itemView.findViewById(R.id.studio_price);
+            textViewLocation = itemView.findViewById(R.id.studio_location);
+            textViewRating = itemView.findViewById(R.id.studio_rating);
+            favoriteButton = itemView.findViewById(R.id.favorite_button_change);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

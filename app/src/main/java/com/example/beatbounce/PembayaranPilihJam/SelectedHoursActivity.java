@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,9 +40,14 @@ public class SelectedHoursActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_hours);
 
-//        Toolbar toolbar = new Toolbar(this);
-//        toolbar.setTitle("Pilih Jam");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = new Toolbar(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setup toolbar with back button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Pemilihan Jadwal");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         RecyclerView recyclerViewSelected = findViewById(R.id.recyclerViewSelected);
         textViewBiayaSewa = findViewById(R.id.biayaStudio);
@@ -76,7 +82,8 @@ public class SelectedHoursActivity extends AppCompatActivity {
 
         selectedHours = (ArrayList<Hour>) intent.getSerializableExtra("selectedWatches");
 
-        adapter = new HourAdapter(selectedHours);
+
+        adapter = new HourAdapter(selectedHours, textViewTotalPrice);
         recyclerViewSelected.setAdapter(adapter);
         recyclerViewSelected.setLayoutManager(new LinearLayoutManager(this));
 
@@ -108,15 +115,27 @@ public class SelectedHoursActivity extends AppCompatActivity {
 
         // SelectedWatchesActivity.java
         buttonPay.setOnClickListener(v -> {
-            String selectedPaymentMethod = spinnerPaymentMethod.getSelectedItem().toString();
-            Intent intentPay = new Intent(SelectedHoursActivity.this, Pembayaran1Activity.class);
-            intentPay.putExtra("watch_name", "Example Watch Name"); // Replace with actual watch name if available
-            intentPay.putExtra("watch_price", getTotalPrice());
-            intentPay.putExtra("payment_method", selectedPaymentMethod);
-            intentPay.putExtra("selectedWatches", new ArrayList<>(selectedHours)); // Send list of selected watches
-            startActivity(intentPay);
+            double totalPrice = getTotalPrice();
+            if (totalPrice == 0) {
+                // Show an alert if total price is zero
+                new AlertDialog.Builder(SelectedHoursActivity.this)
+                        .setTitle("Error")
+                        .setMessage("Total price cannot be zero. Please select at least one hour.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            // Dismiss the dialog
+                            dialog.dismiss();
+                        })
+                        .show();
+            } else {
+                String selectedPaymentMethod = spinnerPaymentMethod.getSelectedItem().toString();
+                Intent intentPay = new Intent(SelectedHoursActivity.this, Pembayaran1Activity.class);
+                intentPay.putExtra("watch_name", "Example Watch Name"); // Replace with actual watch name if available
+                intentPay.putExtra("watch_price", totalPrice);
+                intentPay.putExtra("payment_method", selectedPaymentMethod);
+                intentPay.putExtra("selectedWatches", new ArrayList<>(selectedHours)); // Send list of selected watches
+                startActivity(intentPay);
+            }
         });
-
 
 
     }

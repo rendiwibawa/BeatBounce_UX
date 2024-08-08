@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeatBounce"
         tools:targetApi="31">
-        <activity
-            android:name=".History.HistoryActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".History.HistoryActivity"-->
+<!--            android:exported="false" />-->
         <activity android:name=".Detail.DetailActivity" />
         <activity
             android:name=".PembayaranPilihJam.Pembayaran1Activity"
@@ -22,10 +22,19 @@
             android:name=".PembayaranPilihJam.SelectedHoursActivity"
             android:exported="false" />
         <activity
-            android:name=".PembayaranPilihJam.HourListActivity"
+            android:name=".StudioFavoritActivity"
             android:exported="false" />
         <activity
             android:name=".StudioPencarianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PembayaranPilihJam.HourListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".History.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

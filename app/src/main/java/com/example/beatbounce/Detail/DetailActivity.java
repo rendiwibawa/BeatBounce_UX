@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,10 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setTitle("Pilih Jam");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView imageViewDetail = findViewById(R.id.imageViewDetail);
         TextView textViewTitleDetail = findViewById(R.id.textViewTitleDetail);
@@ -45,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
 
         // Setup toolbar with back button
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Detail");
+            getSupportActionBar().setTitle("Detail Studio");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 

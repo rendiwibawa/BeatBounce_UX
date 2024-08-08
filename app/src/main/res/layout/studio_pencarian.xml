@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,35 +16,35 @@
         tools:context=".History.HistoryActivity">
 
         <!-- Header with Back Button and Title -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="42dp">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="42dp">-->
 
-            <!-- Button Back -->
-            <FrameLayout
-                android:id="@+id/back_button_container"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/button_back">
+<!--            &lt;!&ndash; Button Back &ndash;&gt;-->
+<!--            <FrameLayout-->
+<!--                android:id="@+id/back_button_container"-->
+<!--                android:layout_width="25dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:background="@drawable/button_back">-->
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/baseline_arrow_back_24"/>
-            </FrameLayout>
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/baseline_arrow_back_24"/>-->
+<!--            </FrameLayout>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Pencarian"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:text="Riwayat Pemesanan"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20sp" />-->
+<!--        </RelativeLayout>-->
 
         <!-- Space between header and buttons -->
         <View
@@ -50,7 +55,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="0dp"
+            android:paddingStart="8dp"
             android:layout_marginBottom="14dp">
             <ImageView
                 android:layout_width="24dp"
@@ -162,3 +167,20 @@
 
     </LinearLayout>
 </ScrollView>
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+android:id="@+id/bottomNavigation"
+android:layout_width="match_parent"
+android:layout_height="69dp"
+android:layout_gravity="bottom"
+android:layout_marginEnd="20dp"
+android:layout_marginStart="20dp"
+android:layout_marginBottom="10dp"
+android:background="@drawable/bottom_background"
+android:elevation="2dp"
+app:itemIconSize="30dp"
+app:itemIconTint="@drawable/item_selector"
+app:itemRippleColor="@color/default_color"
+app:labelVisibilityMode="unlabeled"
+app:menu="@menu/bottom_menu" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

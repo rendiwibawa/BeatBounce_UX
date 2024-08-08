@@ -7,6 +7,8 @@ public class CardBesarItem {
     private final String location;
     private final String rating;
 
+    private boolean isFavorite;
+
     public CardBesarItem(int imageResId, String title, String price, String location, String rating) {
         this.imageResId = imageResId;
         this.title = title;
@@ -33,5 +35,13 @@ public class CardBesarItem {
 
     public String getRating() {
         return rating;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

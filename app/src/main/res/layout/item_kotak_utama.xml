@@ -70,7 +70,7 @@
             android:layout_width="30.32dp"
             android:layout_height="20.14dp"
             android:layout_marginRight="8.3dp"
-            android:src="@drawable/lokasi"/>
+            android:src="@drawable/baseline_location_on_24"/>
 
         <TextView
             android:id="@+id/studio_location"
@@ -93,18 +93,25 @@
             android:layout_height="0dp" />
 
         <TextView
-            android:id="@+id/studio_price"
             android:layout_width="0dp"
             android:layout_height="20.14dp"
             android:layout_weight="1"
-            android:text="Rp. 250.000 / jam"
+            android:text="Rp."
+            android:textColor="@color/black"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/studio_price"
+            android:layout_width="180dp"
+            android:layout_height="20.14dp"
+            android:layout_weight="1"
+            android:text="250.000 / jam"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
         <ImageView
             android:layout_width="23.32dp"
             android:layout_height="20.14dp"
-            android:layout_marginRight="23dp"
+            android:layout_marginRight="10dp"
             android:src="@drawable/bintang"/>
 
         <View
@@ -115,7 +122,7 @@
             android:id="@+id/studio_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="45dp"
             android:text="4.5/5"
             android:textColor="@color/black"
             android:textSize="13dp" />

@@ -17,11 +17,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="172dp"
                 android:background="@drawable/header"
                 android:baselineAligned="false"></LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -274,12 +276,14 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1" />
 
-                            <!--                            <Button-->
-                            <!--                                android:layout_width="wrap_content"-->
-                            <!--                                android:layout_height="wrap_content"-->
-                            <!--                                android:layout_gravity="end"-->
-                            <!--                                android:background="@drawable/button"-->
-                            <!--                                android:text="Bayar" />-->
+                            <Button
+                                android:id="@+id/btnSelesai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:textColor="@color/white"
+                                android:background="@drawable/bottom_background"
+                                android:text="Selesai" />
                         </LinearLayout>
 
 

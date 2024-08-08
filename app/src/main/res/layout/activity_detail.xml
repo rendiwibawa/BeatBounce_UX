@@ -4,44 +4,57 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageViewDetail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/textViewTitleDetail"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_below="@id/imageViewDetail"
-        android:paddingTop="16dp" />
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp">
 
-    <TextView
-        android:id="@+id/textViewPriceDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewTitleDetail"
-        android:paddingTop="8dp" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/imageViewDetail"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/textViewLocationDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewPriceDetail"
-        android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/textViewTitleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_below="@id/imageViewDetail"
+            android:paddingTop="16dp" />
 
-    <TextView
-        android:id="@+id/textViewRatingDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@id/textViewLocationDetail"
-        android:paddingTop="8dp" />
+        <TextView
+            android:id="@+id/textViewPriceDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/textViewTitleDetail"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/textViewLocationDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/textViewPriceDetail"
+            android:paddingTop="8dp" />
+
+        <TextView
+            android:id="@+id/textViewRatingDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_below="@id/textViewLocationDetail"
+            android:paddingTop="8dp" />
+    </LinearLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabBooking"

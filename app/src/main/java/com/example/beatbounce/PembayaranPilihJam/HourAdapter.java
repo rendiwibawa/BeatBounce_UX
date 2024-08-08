@@ -18,9 +18,13 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
 
     private List<Hour> hourList;
     private List<Hour> selectedHours = new ArrayList<>();
+    private double totalPrice = 0.0; // Declare totalPrice as a field
+    private TextView totalPriceTextView; // Declare totalPriceTextView as a field
 
-    public HourAdapter(List<Hour> hourList) {
+    public HourAdapter(List<Hour> hourList, TextView totalPriceTextView) {
         this.hourList = hourList;
+        this.totalPriceTextView = totalPriceTextView; // Initialize totalPriceTextView
+
     }
 
     @NonNull
@@ -35,7 +39,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
     public void onBindViewHolder(@NonNull HourViewHolder holder, int position) {
         Hour hour = hourList.get(position);
         holder.timeTextView.setText(hour.getTime());
-        holder.priceTextView.setText(String.format("Rp. %.3f", hour.getPrice()));
+        holder.priceTextView.setText(String.format("%.3f", hour.getPrice()));
 
         // Mendapatkan LinearLayout dari itemView
         LinearLayout outerLayout = holder.itemView.findViewById(R.id.outerLinearLayout);
@@ -48,17 +52,24 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             holder.itemView.setEnabled(true); // Enable item
         }
 
+
         holder.itemView.setOnClickListener(v -> {
             if (hour.isAvailable()) {
                 if (selectedHours.contains(hour)) {
                     outerLayout.setBackgroundResource(R.drawable.orange_bg_rounded_15);
                     selectedHours.remove(hour);
                     holder.itemView.setSelected(false);
+                    // Subtract the price of the hour from the total price
+                    totalPrice -= hour.getPrice();
                 } else {
-                    outerLayout.setBackgroundResource(R.drawable.background_gray);
+                    outerLayout.setBackgroundResource(R.drawable.background_green);
                     selectedHours.add(hour);
                     holder.itemView.setSelected(true);
+                    // Add the price of the hour to the total price
+                    totalPrice += hour.getPrice();
                 }
+                // Update the totalPriceTextView with the new total price
+                totalPriceTextView.setText(String.format("Rp. %.3f", totalPrice));
             }
         });
     }
@@ -78,6 +89,11 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         return selectedHours;
     }
 
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
     public static class HourViewHolder extends RecyclerView.ViewHolder {
         TextView timeTextView;
         TextView priceTextView;
@@ -87,6 +103,10 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             timeTextView = itemView.findViewById(R.id.watch_name);
             priceTextView = itemView.findViewById(R.id.watch_price);
         }
+    }
+    public void resetTotalPrice() {
+        totalPrice = 0.0;
+        totalPriceTextView.setText(String.format("Rp. %.3f", totalPrice));
     }
 
 }

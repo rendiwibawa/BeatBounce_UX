@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +17,7 @@ import com.example.beatbounce.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class HourListActivity extends AppCompatActivity {
 
@@ -27,17 +30,19 @@ public class HourListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_choose_hour);
 
         RecyclerView dateRecyclerView = findViewById(R.id.DateRecyclerView);
         dateRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        RecyclerView hourRecyclerView = findViewById(R.id.recyclerView);
+        RecyclerView hourRecyclerView = findViewById(R.id.HourRecyclerView);
         hourRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        Toolbar toolbar = new Toolbar(this);
-//        toolbar.setTitle("Pilih Jam");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Setup toolbar with back button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Pilih Jadwal");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // Get data from Intent
         Intent intent1 = getIntent();
@@ -65,65 +70,100 @@ public class HourListActivity extends AppCompatActivity {
         Button buttonShowSelected = findViewById(R.id.buttonShowSelected);
 
         // Initialize hourList with some example data
-        hourList = new ArrayList<>();
-        hourList.add(new Hour("08:00 - 09:00", price, true));
-        hourList.add(new Hour("09:00 - 10:00", price, true));
-        hourList.add(new Hour("11:00 - 12:00", price, false));
+//        hourList = new ArrayList<>();
+//        hourList.add(new Hour("08:00 - 09:00", price, true));
+//        hourList.add(new Hour("09:00 - 10:00", price, true));
+//        hourList.add(new Hour("11:00 - 12:00", price, false));
+//
+//
+//        hourAdapter = new HourAdapter(hourList);
+//        hourRecyclerView.setAdapter(hourAdapter);
 
+//         Set up dates
+        Random random = new Random();
 
-        hourAdapter = new HourAdapter(hourList);
+        List<Hour> bookingHoursList1 = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            boolean randomBoolean = random.nextBoolean();
+            String hour = String.format("%02d:00 - %02d:00", i, i + 1);
+            bookingHoursList1.add(new Hour(hour, price, randomBoolean));
+        }
+
+        List<Hour> bookingHoursList2 = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            boolean randomBoolean = random.nextBoolean();
+            String hour = String.format("%02d:00 - %02d:00", i, i + 1);
+            bookingHoursList2.add(new Hour(hour, price, randomBoolean));
+        }
+
+//        hourAdapter = new HourAdapter(bookingHoursList1);
+//        hourRecyclerView.setAdapter(hourAdapter);
+        TextView totalPriceTextView = findViewById(R.id.totalPriceTextView);
+        hourAdapter = new HourAdapter(bookingHoursList1, totalPriceTextView);
         hourRecyclerView.setAdapter(hourAdapter);
-
-        // Set up dates
-//        Random random = new Random();
 //
-//        List<Hour> bookingHoursList1 = new ArrayList<>();
-//        for (int i = 0; i < 24; i++) {
-//            boolean randomBoolean = random.nextBoolean();
-//            String hour = String.format("%02d:00 - %02d:00", i, i + 1);
-//            bookingHoursList1.add(new Hour(hour, 100, randomBoolean));
-//        }
+        bookingList = new ArrayList<>();
+        bookingList.add(new BookingDate("1 Juli", bookingHoursList1));
+        bookingList.add(new BookingDate("2 Juli", bookingHoursList2));
+        bookingList.add(new BookingDate("3 Juli", bookingHoursList2));
+        bookingList.add(new BookingDate("4 Juli", bookingHoursList2));
+        bookingList.add(new BookingDate("5 Juli", bookingHoursList2));
+        bookingList.add(new BookingDate("6 Juli", bookingHoursList2));
 //
-//        List<Hour> bookingHoursList2 = new ArrayList<>();
-//        for (int i = 0; i < 24; i++) {
-//            long price = 100 + i * 4;
-//            boolean randomBoolean = random.nextBoolean();
-//            String hour = String.format("%02d:00 - %02d:00", i, i + 1);
-//            bookingHoursList2.add(new Hour(hour, price, randomBoolean));
-//        }
-//
-//        bookingList = new ArrayList<>();
-//        bookingList.add(new BookingDate("1 Juli", bookingHoursList1));
-//        bookingList.add(new BookingDate("2 Juli", bookingHoursList2));
-//        bookingList.add(new BookingDate("3 Juli", bookingHoursList2));
-//        bookingList.add(new BookingDate("4 Juli", bookingHoursList2));
-//        bookingList.add(new BookingDate("5 Juli", bookingHoursList2));
-//        bookingList.add(new BookingDate("6 Juli", bookingHoursList2));
-//
-//        BookingDateAdapter dateAdapter = new BookingDateAdapter(bookingList);
-//        dateAdapter.setOnDateClickListener(new BookingDateAdapter.OnDateClickListener() {
-//            @Override
-//            public void onDateClick(List<Hour> hours) {
-//                currentBookingHoursList = hours;
-//                hourAdapter.updateData(hours);
-//            }
-//        });
-//        dateRecyclerView.setAdapter(dateAdapter);
-//
-        buttonShowSelected.setOnClickListener(v -> {
-            Intent intent = new Intent(HourListActivity.this, SelectedHoursActivity.class);
-            intent.putExtra("imageResId", imageResId);
-            intent.putExtra("title", title);
-            intent.putExtra("location", location);
-            intent.putExtra("rating", rating);
+        BookingDateAdapter dateAdapter = new BookingDateAdapter(bookingList);
 
-
-            intent.putExtra("selectedWatches", new ArrayList<>(hourAdapter.getSelectedWatches()));
-            startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
-
-
+        dateAdapter.setOnDateClickListener(new BookingDateAdapter.OnDateClickListener() {
+            @Override
+            public void onDateClick(List<Hour> hours) {
+                hourAdapter.resetTotalPrice();
+                // Clear the selected hours from the previous date
+                hourAdapter.getSelectedWatches().clear();
+                // Update the data for the new date
+                currentBookingHoursList = hours;
+                hourAdapter.updateData(hours);
+            }
 
         });
+        dateRecyclerView.setAdapter(dateAdapter);
+        if (bookingList.size() > 0) {
+            // Use the adapter's listener to trigger the onDateClick method
+            dateRecyclerView.post(() -> {
+                BookingDateAdapter.OnDateClickListener listener = dateAdapter.getOnDateClickListener();
+                if (listener != null) {
+                    listener.onDateClick(bookingList.get(0).getHours());
+                }
+            });
+        }
+
+        buttonShowSelected.setOnClickListener(v -> {
+            // Get the selected hours from the current date
+            ArrayList<Hour> selectedHours = new ArrayList<>(hourAdapter.getSelectedWatches());
+
+            if (selectedHours.isEmpty()) {
+                // Show an alert if no hours are selected
+                new AlertDialog.Builder(HourListActivity.this)
+                        .setTitle("Error")
+                        .setMessage("Please select at least one hour.")
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            // Dismiss the dialog
+                            dialog.dismiss();
+                        })
+                        .show();
+            } else {
+                Intent intent = new Intent(HourListActivity.this, SelectedHoursActivity.class);
+                intent.putExtra("imageResId", imageResId);
+                intent.putExtra("title", title);
+                intent.putExtra("location", location);
+                intent.putExtra("rating", rating);
+                intent.putExtra("selectedWatches", selectedHours);
+                // Get the total price from the HourAdapter
+                double totalPrice = hourAdapter.getTotalPrice();
+                intent.putExtra("totalPrice", totalPrice);
+
+                startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
+            }
+        });
+
     }
 
     @Override

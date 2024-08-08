@@ -38,7 +38,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
         holder.nameTextView.setText(studio.getName());
         holder.locationTextView.setText(studio.getLocation());
         holder.priceTextView.setText(studio.getPrice());
-        holder.ratingTextView.setText(String.format("%.1f/5", studio.getRating()));
+        holder.ratingTextView.setText(studio.getRating());
         holder.imageView.setImageResource(studio.getImageResourceId());
 
         holder.favoriteButton.setSelected(studio.isFavorite());

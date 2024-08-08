@@ -1,5 +1,7 @@
 package com.example.beatbounce;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.beatbounce.Detail.DetailActivity;
+
 import java.util.List;
 
 public class StudioFavoritAdapter extends RecyclerView.Adapter<StudioFavoritAdapter.StudioViewHolder> {
 
-    private List<Studio> studioList;
+    private static List<Studio> studioList;
 
     public StudioFavoritAdapter(List<Studio> studios) {
         this.studioList = studios;
@@ -33,7 +37,7 @@ public class StudioFavoritAdapter extends RecyclerView.Adapter<StudioFavoritAdap
         holder.nameTextView.setText(studio.getName());
         holder.locationTextView.setText(studio.getLocation());
         holder.priceTextView.setText(studio.getPrice());
-        holder.ratingTextView.setText(String.format("%.1f/5", studio.getRating()));
+        holder.ratingTextView.setText(studio.getRating());
         holder.imageView.setImageResource(studio.getImageResourceId());
 
         // Set the initial state of the favorite button
@@ -79,6 +83,27 @@ public class StudioFavoritAdapter extends RecyclerView.Adapter<StudioFavoritAdap
             ratingTextView = itemView.findViewById(R.id.studio_rating);
             imageView = itemView.findViewById(R.id.studio_image);
             favoriteButton = itemView.findViewById(R.id.favorite_button_change);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION)
+
+                    {
+                        Studio clickedItem = studioList.get(position);
+                        // Start DetailActivity with the clicked item's details
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("imageResId", clickedItem.getImageResourceId());
+                        intent.putExtra("title", clickedItem.getName());
+                        intent.putExtra("price", clickedItem.getPrice());
+                        intent.putExtra("location", clickedItem.getLocation());
+                        intent.putExtra("rating", clickedItem.getRating());
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }
