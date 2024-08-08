@@ -1,6 +1,7 @@
 package com.example.beatbounce.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -83,10 +84,15 @@ public class RegisterActivity extends AppCompatActivity {
             if (isValid) {
                 Toast.makeText(this, getString(R.string.text_register_success), Toast.LENGTH_SHORT).show();
 
+                SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("FULL_NAME", name);
+                editor.putString("EMAIL", email);
+                editor.apply();
+
                 Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
-                intent.putExtra("FULL_NAME", name);
-//
-                intent.putExtra("EMAIL", email);
+//                intent.putExtra("FULL_NAME", name);
+//                intent.putExtra("EMAIL", email);
 
                 startActivity(intent);
 

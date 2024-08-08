@@ -1,6 +1,7 @@
 package com.example.beatbounce.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -90,9 +91,20 @@ public class LoginActivity extends AppCompatActivity {
                 String emailPrefix = emailParts[0];
 
                 // Kirim emailPrefix ke aktivitas lain
+//                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+//                intent.putExtra("EMAIL_PREFIX", emailPrefix);
+//                intent.putExtra("EMAIL", email);
+//                startActivity(intent);
+
+                // Simpan emailPrefix dan email ke SharedPreferences
+                SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("EMAIL_PREFIX", emailPrefix);
+                editor.putString("EMAIL", email);
+                editor.apply();
+
+                // Lanjutkan ke ProfileActivity
                 Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                intent.putExtra("EMAIL_PREFIX", emailPrefix);
-                intent.putExtra("EMAIL", email);
                 startActivity(intent);
             }
         }

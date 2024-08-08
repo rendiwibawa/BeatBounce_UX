@@ -1,6 +1,7 @@
 package com.example.beatbounce.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.TextView;
@@ -30,24 +31,36 @@ public class ProfileActivity extends AppCompatActivity {
 
         tvChangePassword = findViewById(R.id.tv_change_password);
 
+//        TextView input_name = findViewById(R.id.et_name);
+//        TextView email_user = findViewById(R.id.et_email);
+//
+//        Intent intent = getIntent();
+//        String full_name = intent.getStringExtra("FULL_NAME");
+//        String email_users = intent.getStringExtra("EMAIL");
+//        String nick_name = intent.getStringExtra("EMAIL_PREFIX");
+//        String email_user_login = intent.getStringExtra("EMAIL");
+
+        // Ambil TextView dari layout
         TextView input_name = findViewById(R.id.et_name);
         TextView email_user = findViewById(R.id.et_email);
-//        TextView input_nick_name = findViewById(R.id.et_name);
 
+        // Ambil data dari SharedPreferences
+        SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        String full_name = sharedPref.getString("FULL_NAME", "");
+        String email_users = sharedPref.getString("EMAIL", "");
+        String nick_name = sharedPref.getString("EMAIL_PREFIX", "");
 
-        Intent intent = getIntent();
-        String full_name = intent.getStringExtra("FULL_NAME");
-        String email_users = intent.getStringExtra("EMAIL");
-        String nick_name = intent.getStringExtra("EMAIL_PREFIX");
-        String email_user_login = intent.getStringExtra("EMAIL");
+        // Set data ke TextView
+        input_name.setText(full_name);
+        email_user.setText(email_users);
 
         if (full_name != null && !full_name.isEmpty()) {
             input_name.setText(full_name);
         } else if (nick_name != null && !nick_name.isEmpty()) {
             input_name.setText(nick_name);
         }
-        email_user.setText(email_users);
-        email_user.setText(email_user_login);
+//        email_user.setText(email_users);
+//        email_user.setText(email_user_login);
 
         initView();
     }
