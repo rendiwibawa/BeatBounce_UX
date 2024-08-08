@@ -16,10 +16,9 @@ import com.example.beatbounce.Detail.DetailActivity;
 import com.example.beatbounce.Home.CardBesarItem;
 
 import java.util.List;
-
 public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioViewHolder> {
 
-    private static List<Studio> studioList;
+    private List<Studio> studioList;
 
     public StudioAdapter(List<Studio> studios) {
         this.studioList = studios;
@@ -29,7 +28,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
     @Override
     public StudioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_kotak_utama, parent, false);
-        return new StudioViewHolder(view);
+        return new StudioViewHolder(view, studioList);
     }
 
     @Override
@@ -51,17 +50,18 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
                 studio.setFavorite(isSelected);
                 // Update only the favorite button state without affecting the entire item view
                 holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_red_24 : R.drawable.baseline_favorite_shadow_24);
-
-
             }
         });
-
     }
-
 
     @Override
     public int getItemCount() {
         return studioList.size();
+    }
+
+    public void updateData(List<Studio> newStudioList) {
+        this.studioList = newStudioList;
+        notifyDataSetChanged();
     }
 
     public static class StudioViewHolder extends RecyclerView.ViewHolder {
@@ -72,8 +72,11 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
         ImageView imageView;
         Button favoriteButton;
 
-        public StudioViewHolder(View itemView) {
+        private List<Studio> studioList;
+
+        public StudioViewHolder(View itemView, List<Studio> studioList) {
             super(itemView);
+            this.studioList = studioList; // Initialize the studioList
             nameTextView = itemView.findViewById(R.id.studio_name);
             locationTextView = itemView.findViewById(R.id.studio_location);
             priceTextView = itemView.findViewById(R.id.studio_price);
@@ -85,9 +88,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION)
-
-                    {
+                    if (position != RecyclerView.NO_POSITION) {
                         Studio clickedItem = studioList.get(position);
                         // Start DetailActivity with the clicked item's details
                         Context context = v.getContext();
