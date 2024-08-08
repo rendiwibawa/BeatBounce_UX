@@ -33,14 +33,14 @@ public class ReviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int imageResId = intent.getIntExtra("imageResId", -1);
         String title = intent.getStringExtra("title");
-        String rating = intent.getStringExtra("rating");
+        double rating = intent.getDoubleExtra("rating", 0.0);
 
         // Set data to views
         if (imageResId != -1) {
             imageViewDetail.setImageResource(imageResId);
         }
         textViewTitleDetail.setText(title);
-        textViewRatingDetail.setText(rating);
+        textViewRatingDetail.setText(String.valueOf(rating));
 
     }
 

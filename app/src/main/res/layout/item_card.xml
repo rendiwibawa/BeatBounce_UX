@@ -23,11 +23,11 @@
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
         android:text="Studio B"
         android:paddingLeft="12dp"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textStyle="bold"
+        android:textSize="13dp" />
 
     <TextView
         android:id="@+id/textViewPrice"

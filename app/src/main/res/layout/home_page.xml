@@ -54,11 +54,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lokasi saat ini"
+                    android:text="Sentul, Bogor"
                     android:layout_marginTop="56dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="55dp"
 
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textColor="@color/white" />
                 <!--android:fontFamily="@font/poppins_regular"-->
 
@@ -69,14 +69,14 @@
                     android:layout_marginLeft="33dp"
 
 
-                    android:text="Hi, Welcome to Beatbounce"
+                    android:text="Halo, selamat datang kembali di Beatbounce!"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@+id/userTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="125dp"
+                    android:layout_marginTop="155dp"
                     android:layout_marginLeft="33dp"
                     android:text="User"
                     android:textColor="@color/white"
@@ -86,35 +86,35 @@
                 </TextView>
                 <!--android:fontFamily="@font/poppins_regular"-->
 
-                <LinearLayout
-                    android:id="@+id/searchLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="29dp"
-                    android:background="@drawable/rounded_25"
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:gravity="center_vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/searchLocation"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="58dp"-->
+<!--                    android:layout_alignParentBottom="true"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:layout_marginBottom="29dp"-->
+<!--                    android:background="@drawable/rounded_25"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:gravity="center_vertical">-->
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="30dp"
-                        android:src="@drawable/ic_search"
-                        android:contentDescription="search_icon" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="40dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginLeft="30dp"-->
+<!--                        android:src="@drawable/ic_search"-->
+<!--                        android:contentDescription="search_icon" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="Cari Studio Dance"
-                        android:textSize="16sp"
-                        android:inputType="text"
-                        android:background="@android:color/transparent" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:hint="Cari Studio Dance"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:inputType="text"-->
+<!--                        android:background="@android:color/transparent" />-->
+<!--                </LinearLayout>-->
             </RelativeLayout>
         </FrameLayout>
 

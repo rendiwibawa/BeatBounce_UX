@@ -41,6 +41,7 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
         holder.timeTextView.setText(hour.getTime());
         holder.priceTextView.setText(String.format("%.3f", hour.getPrice()));
 
+
         // Mendapatkan LinearLayout dari itemView
         LinearLayout outerLayout = holder.itemView.findViewById(R.id.outerLinearLayout);
 
@@ -57,12 +58,16 @@ public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder
             if (hour.isAvailable()) {
                 if (selectedHours.contains(hour)) {
                     outerLayout.setBackgroundResource(R.drawable.orange_bg_rounded_15);
+                    holder.timeTextView.setTextColor(holder.itemView.getResources().getColor(R.color.white));
+                    holder.priceTextView.setTextColor(holder.itemView.getResources().getColor(R.color.white));
                     selectedHours.remove(hour);
                     holder.itemView.setSelected(false);
                     // Subtract the price of the hour from the total price
                     totalPrice -= hour.getPrice();
                 } else {
                     outerLayout.setBackgroundResource(R.drawable.background_green);
+                    holder.timeTextView.setTextColor(holder.itemView.getResources().getColor(R.color.colorPrimary));
+                    holder.priceTextView.setTextColor(holder.itemView.getResources().getColor(R.color.colorPrimary)); // Set text color to primary
                     selectedHours.add(hour);
                     holder.itemView.setSelected(true);
                     // Add the price of the hour to the total price

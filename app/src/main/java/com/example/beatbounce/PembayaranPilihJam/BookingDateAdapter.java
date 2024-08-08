@@ -41,9 +41,14 @@ public class BookingDateAdapter extends RecyclerView.Adapter<BookingDateAdapter.
     public void onBindViewHolder(@NonNull BookingViewHolder holder, int position) {
         BookingDate bookingItem = bookingList.get(position);
         holder.textView.setText(bookingItem.getText());
+//        set the font color to primary color
+//        holder.textView.setTextColor(holder.itemView.getResources().getColor(R.color.colorPrimary));
+
 
         if (selectedPosition == position) {
-            holder.itemView.setBackgroundResource(R.drawable.white_bg_rounded_10);
+            holder.itemView.setBackgroundResource(R.drawable.background_green);
+            holder.textView.setTextColor(holder.itemView.getResources().getColor(R.color.colorPrimary));
+
         } else {
             holder.itemView.setBackgroundResource(R.drawable.orange_bg_rounded_10);
         }

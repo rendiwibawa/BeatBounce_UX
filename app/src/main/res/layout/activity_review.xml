@@ -103,9 +103,17 @@
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" / 5"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:layout_marginStart="4dp"
                     android:src="@drawable/star" />
 
@@ -121,14 +129,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/lihatSemua"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lihat Semua"
-                    android:textColor="#FF8E33"
-                    android:clickable="true"
-                    android:focusable="true" />
             </LinearLayout>
 
         <LinearLayout
@@ -168,9 +168,10 @@
                         android:contentDescription="User Avatar"/>
 
                     <TextView
+                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem ipsum"
+                        android:text="Jono Warbiasyah"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
@@ -179,7 +180,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet consectetur. Non egestas cursus consectetur quisque est..."
+                    android:text="Aplikasi ini sangat mudah digunakan untuk mencari studio tari terdekat"
                     android:textColor="@android:color/black"
                     android:layout_marginBottom="8dp"/>
 
@@ -206,7 +207,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem ipsum"
+                        android:layout_gravity="center_vertical"
+                        android:text="Ajengnya Sarah"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
@@ -215,7 +217,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet consectetur. Non egestas cursus consectetur quisque est..."
+                    android:text="Karena sering pindah kota, susah banget cari studio tari baru. Tapi dengan Beatbounce, aku bisa langsung tahu di kota baru ini ada studio tari apa aja."
                     android:textColor="@android:color/black"
                     android:layout_marginBottom="8dp"/>
 
@@ -241,9 +243,10 @@
                         android:contentDescription="User Avatar"/>
 
                     <TextView
+                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem ipsum"
+                        android:text="Richard Rendi Yanto"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
@@ -254,7 +257,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:text="Lorem ipsum dolor sit amet consectetur. Non egestas cursus consectetur quisque est..."
+                    android:text="Aku lagi nyari partner untuk ikut kompetisi dance. Ternyata di Beatbounce ada fitur komunitasnya juga! Jadi bisa ketemu sama dancer lain yang punya minat yang sama"
                     android:textColor="@android:color/black" />
 
                 <!--                <TextView-->

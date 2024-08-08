@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
-        searchLocation = findViewById(R.id.searchLocation);
+//        searchLocation = findViewById(R.id.searchLocation);
         userTextView = findViewById(R.id.userTextView);
 
         SharedPreferences sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE);
@@ -44,21 +44,21 @@ public class HomeActivity extends AppCompatActivity {
 
         userTextView.setText(userName);
 
-        searchLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, StudioPencarianActivity.class);
-                startActivity(intent);
-            }
-        });
+//        searchLocation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(HomeActivity.this, StudioPencarianActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        searchLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, StudioPencarianActivity.class);
-                startActivity(intent);
-            }
-        });
+//        searchLocation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(HomeActivity.this, StudioPencarianActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 
