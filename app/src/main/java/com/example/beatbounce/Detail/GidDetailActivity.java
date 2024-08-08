@@ -101,6 +101,27 @@ public class GidDetailActivity extends AppCompatActivity {
 
         });
 
+        // Find the TextView
+        TextView lihatSemua = findViewById(R.id.lihatSemua);
+
+// Set an OnClickListener
+        lihatSemua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start ReviewActivity
+                Intent intent = new Intent(GidDetailActivity.this, ReviewActivity.class);
+
+                intent.putExtra("title", title);
+                intent.putExtra("price", price);
+                intent.putExtra("location", location);
+                intent.putExtra("rating", rating);
+                intent.putExtra("imageResId", imageResId);
+
+                // Start the ReviewActivity
+                startActivity(intent);
+            }
+        });
+
 
     }
 
