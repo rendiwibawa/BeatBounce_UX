@@ -69,10 +69,21 @@
                     android:layout_marginLeft="33dp"
 
 
-                    android:text="Hi, Welcome to Beatbounce
-                 User"
+                    android:text="Hi, Welcome to Beatbounce"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/userTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="125dp"
+                    android:layout_marginLeft="33dp"
+                    android:text="User"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    >
+
+                </TextView>
                 <!--android:fontFamily="@font/poppins_regular"-->
 
                 <LinearLayout

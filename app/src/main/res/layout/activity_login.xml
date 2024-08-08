@@ -117,14 +117,15 @@
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="61dp"
 
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_button_shadow"
             android:importantForAccessibility="no"
-            android:background="@drawable/bg_button_shadow" />
+            tools:ignore="MissingConstraints"
+
+             />
 
         <Button
             android:id="@+id/btn_login"
@@ -135,14 +136,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:fontFamily="@font/poppins_bold"
+            android:background="@drawable/rounded_25"
             android:text="@string/action_login"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            app:cornerRadius="26dp"
+
+            android:stateListAnimator="@animator/lift_on_touch"
+
             app:backgroundTint="#331D0B"
             android:textAllCaps="false"
             android:textColor="#FF9035"
-            tools:layout_editor_absoluteX="2dp" />
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
