@@ -6,44 +6,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-
-        >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="27dp"
-                android:layout_marginTop="8dp"
-                android:clickable="true"
-                android:contentDescription="Back to home"
-                android:focusable="true"
-                android:onClick="backToHome"
-                android:src="@drawable/back_button" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Pilih Jadwal"
-                android:gravity="center"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-
-                >
-
-            </TextView>
-
-        </RelativeLayout>
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +19,6 @@
                 <!--            card for choosing date-->
                 <!-- res/layout/activity_booking.xml -->
                 <LinearLayout
-                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="256dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -63,9 +29,8 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/DateRecyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
                 <!--            add line-->
                 <View
@@ -89,6 +54,7 @@
                 </ImageView>
 
             </LinearLayout>
+
 
 
 
