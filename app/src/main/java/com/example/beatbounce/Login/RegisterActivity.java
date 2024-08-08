@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.databinding.ActivityRegisterBinding;
 
@@ -90,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
                 editor.putString("EMAIL", email);
                 editor.apply();
 
-                Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
 //                intent.putExtra("FULL_NAME", name);
 //                intent.putExtra("EMAIL", email);
 
