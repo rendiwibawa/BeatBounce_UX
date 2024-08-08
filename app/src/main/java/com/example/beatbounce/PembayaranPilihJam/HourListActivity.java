@@ -38,9 +38,11 @@ public class HourListActivity extends AppCompatActivity {
         RecyclerView hourRecyclerView = findViewById(R.id.HourRecyclerView);
         hourRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setTitle("Pilih Jam");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Setup toolbar with back button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Pilih Jadwal");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // Get data from Intent
         Intent intent1 = getIntent();

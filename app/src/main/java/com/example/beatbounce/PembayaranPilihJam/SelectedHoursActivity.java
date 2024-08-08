@@ -40,9 +40,14 @@ public class SelectedHoursActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_hours);
 
-//        Toolbar toolbar = new Toolbar(this);
-//        toolbar.setTitle("Pilih Jam");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = new Toolbar(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Setup toolbar with back button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Pemilihan Jadwal");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         RecyclerView recyclerViewSelected = findViewById(R.id.recyclerViewSelected);
         textViewBiayaSewa = findViewById(R.id.biayaStudio);
