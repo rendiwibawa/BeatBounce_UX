@@ -25,13 +25,13 @@
             android:name=".StudioFavoritActivity"
             android:exported="false" />
         <activity
-            android:name=".StudioPencarianActivity"
-            android:exported="false" />
-        <activity
             android:name=".PembayaranPilihJam.HourListActivity"
             android:exported="false" />
         <activity
             android:name=".History.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudioPencarianActivity"
             android:exported="false" />
         <activity
             android:name=".Home.HomeActivity"
