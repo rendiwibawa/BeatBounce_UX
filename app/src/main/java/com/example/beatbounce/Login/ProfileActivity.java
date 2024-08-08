@@ -11,6 +11,7 @@ import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.databinding.ActivityProfileBinding;
 
@@ -55,7 +56,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void initView() {
         binding.btnSave.setOnClickListener(v -> saveProfile());
-        binding.btnBack.setOnClickListener(v -> finish());
         tvChangePassword.setOnClickListener(v -> startActivity(new Intent(this, ChangePasswordActivity.class)));
     }
 
@@ -106,9 +106,12 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
