@@ -17,37 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:background="@color/orange"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
 
-                <!-- Button Back -->
-                <FrameLayout
-                    android:layout_marginTop="42dp"
-                    android:id="@+id/back_button_container"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="16dp"
-                    android:background="@drawable/button_back">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/baseline_arrow_back_24"/>
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Pembayaran"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
-            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="172dp"
@@ -306,12 +276,14 @@
                                 android:layout_height="50dp"
                                 android:layout_weight="1" />
 
-                            <!--                            <Button-->
-                            <!--                                android:layout_width="wrap_content"-->
-                            <!--                                android:layout_height="wrap_content"-->
-                            <!--                                android:layout_gravity="end"-->
-                            <!--                                android:background="@drawable/button"-->
-                            <!--                                android:text="Bayar" />-->
+                            <Button
+                                android:id="@+id/btnSelesai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:textColor="@color/white"
+                                android:background="@drawable/bottom_background"
+                                android:text="Selesai" />
                         </LinearLayout>
 
 

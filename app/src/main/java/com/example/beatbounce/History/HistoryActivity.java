@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.beatbounce.Home.HomeActivity;
+import com.example.beatbounce.PembayaranPilihJam.Pembayaran1Activity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.SpaceItemDecoration;
 import com.example.beatbounce.Studio;
@@ -23,10 +26,22 @@ public class HistoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private StudioAdapter studioAdapter;
 
+    private Button btnMenunggu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        btnMenunggu = findViewById(R.id.btnMenunggu);
+
+        btnMenunggu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HistoryActivity.this, Pembayaran1Activity.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_view_studios);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -53,7 +68,7 @@ public class HistoryActivity extends AppCompatActivity {
                     return true;
                 case R.id.bottom_history:
                     return true;
-                case R.id.botton_account:
+                case R.id.bottom_search:
                     startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();

@@ -104,6 +104,7 @@
                         android:layout_marginLeft="2dp"/>
 
                     <Button
+                        android:id="@+id/btnMenunggu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_button_selector_menunggu"

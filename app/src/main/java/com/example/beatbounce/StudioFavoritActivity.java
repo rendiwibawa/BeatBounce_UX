@@ -53,10 +53,11 @@ public class StudioFavoritActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
-                case R.id.botton_account:
+                case R.id.bottom_search:
                     startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
+                    return true;
             }
             return false;
         });

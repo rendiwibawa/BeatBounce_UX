@@ -33,7 +33,7 @@ public class StudioPencarianActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new SpaceItemDecoration(spacing));
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.botton_account);
+        bottomNavigationView.setSelectedItemId(R.id.bottom_search);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.bottom_home:
@@ -51,7 +51,7 @@ public class StudioPencarianActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;
-                case R.id.botton_account:
+                case R.id.bottom_search:
                     return true;
             }
             return false;

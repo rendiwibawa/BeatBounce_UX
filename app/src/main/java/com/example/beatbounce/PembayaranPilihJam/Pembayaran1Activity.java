@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.R;
 
 import java.util.List;
@@ -24,6 +27,8 @@ public class Pembayaran1Activity extends AppCompatActivity {
     private TextView countDownTimer;
     private RecyclerView recyclerViewWatches;
     private HourAdapter hourAdapter;
+
+    private Button btnSelesai;
 
 
 
@@ -43,6 +48,15 @@ public class Pembayaran1Activity extends AppCompatActivity {
         paymentMethod = findViewById(R.id.paymentMethod);
         countDownTimer = findViewById(R.id.countDownTimer);
         recyclerViewWatches = findViewById(R.id.recyclerViewWatches);
+        btnSelesai = findViewById(R.id.btnSelesai);
+
+        btnSelesai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Pembayaran1Activity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         if (intent != null) {
