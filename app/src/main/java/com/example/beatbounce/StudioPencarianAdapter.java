@@ -1,20 +1,23 @@
 package com.example.beatbounce;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.beatbounce.Detail.DetailActivity;
+
 import java.util.List;
 
 public class StudioPencarianAdapter extends RecyclerView.Adapter<StudioPencarianAdapter.StudioViewHolder> {
-    private List<Studio> studioList;
+    private static List<Studio> studioList;
 
     public StudioPencarianAdapter(List<Studio> studios) {
         this.studioList = studios;
@@ -48,7 +51,6 @@ public class StudioPencarianAdapter extends RecyclerView.Adapter<StudioPencarian
                 holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_shadow_24 : R.drawable.baseline_favorite_red_24);
             }
         });
-
     }
 
     @Override
@@ -63,7 +65,6 @@ public class StudioPencarianAdapter extends RecyclerView.Adapter<StudioPencarian
         TextView ratingTextView;
         ImageView imageView;
         Button favoriteButton;
-        EditText editText;
 
         public StudioViewHolder(View itemView) {
             super(itemView);
@@ -73,7 +74,31 @@ public class StudioPencarianAdapter extends RecyclerView.Adapter<StudioPencarian
             ratingTextView = itemView.findViewById(R.id.studio_rating);
             imageView = itemView.findViewById(R.id.studio_image);
             favoriteButton = itemView.findViewById(R.id.favorite_button_change);
-            editText = itemView.findViewById(R.id.editTextDanceBogor);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION)
+
+                    {
+                        Studio clickedItem = studioList.get(position);
+                        // Start DetailActivity with the clicked item's details
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("imageResId", clickedItem.getImageResourceId());
+                        intent.putExtra("title", clickedItem.getName());
+                        intent.putExtra("price", clickedItem.getPrice());
+                        intent.putExtra("location", clickedItem.getLocation());
+                        intent.putExtra("rating", clickedItem.getRating());
+                        context.startActivity(intent);
+                    }
+                }
+            });
+
+
         }
+
+
     }
 }
