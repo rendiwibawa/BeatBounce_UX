@@ -1,4 +1,4 @@
-package com.example.beatbounce;
+package com.example.beatb;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-import com.example.beatb.R;
 import com.example.beatb.databinding.ActivityLoginBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-
-
         SpannableString spannableString = new SpannableString(getString(R.string.text_register));
         spannableString.setSpan(new UnderlineSpan(), 18, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new ForegroundColorSpan(ResourcesCompat.getColor(getResources(), R.color.orange, null)), 18, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -80,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (isValid) {
+//            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+//            startActivity(intent);
 
             String[] emailParts = email.split("@gmail.com");
             if (emailParts.length > 0) {

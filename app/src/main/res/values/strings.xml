@@ -1,8 +1,37 @@
 <resources>
-    <string name="app_name">BeatBounce</string>
-    <string-array name="language_array">
-        <item>Bahasa Indonesia</item>
-        <item>English</item>
-        <!-- Add more items as needed -->
-    </string-array>
+    <string name="app_name">Beatb</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="action_login">Masuk</string>
+    <string name="text_register">belum punya akun? Daftar</string>
+    <string name="error_email_empty">Alamat email harus diisi!</string>
+    <string name="error_password_empty">Kata sandi harus diisi!</string>
+    <string name="error_password_short">Kata sandi min. 6 karakter</string>
+    <string name="error_email_invalid">Alamat email tidak valid!</string>
+    <string name="hint_full_name">Nama Lengkap</string>
+    <string name="action_register">Daftar</string>
+    <string name="text_login">sudah punya akun? Masuk</string>
+    <string name="text_terms">Saya telah membaca dan menyetujui Syarat dan Ketentuan yang berlaku.</string>
+    <string name="error_terms_unchecked"><![CDATA[Anda harus menyetujui Syarat & Ketentuan yang berlaku!]]></string>
+    <string name="error_name_empty">Nama lengkap harus diisi!</string>
+    <string name="text_register_success">Pendaftaran berhasil!</string>
+    <string name="cd_back_button">Back Button</string>
+    <string name="title_profile">Profil</string>
+    <string name="hint_name">Nama</string>
+    <string name="text_change_password"><u>Ganti Kata Sandi</u></string>
+    <string name="text_support"><u>Hubungi Pusat Dukungan</u></string>
+    <string name="action_save">Simpan</string>
+    <string name="text_profile_saved">Profil berhasil disimpan!</string>
+    <string name="title_change_password">Ganti Kata Sandi</string>
+    <string name="hint_current_password">Kata Sandi Saat Ini</string>
+    <string name="action_forgot_password">Lupa kata sandi ?</string>
+    <string name="hint_new_password">Kata Sandi Baru</string>
+    <string name="hint_password_confirmation">Konfirmasi Kata Sandi</string>
+    <string name="title_reset_password">Atur Ulang Kata Sandi</string>
+    <string name="text_reset_password">Email verifikasi akan dikirmkan ke email Anda!</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_next">Lanjutkan</string>
+    <string name="error_password_not_match">Konfirmasi kata sandi tidak cocok!</string>
+    <string name="change_password_success">Kata sandi berhasil diubah!</string>
+    <string name="reset_password_success">Link reset password telah dikirim ke alamat email!</string>
 </resources>
