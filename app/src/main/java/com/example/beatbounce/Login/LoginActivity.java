@@ -13,6 +13,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
+
+import com.example.beatbounce.Home.HomeActivity;
 import com.example.beatbounce.databinding.ActivityLoginBinding;
 
 
@@ -104,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.apply();
 
                 // Lanjutkan ke ProfileActivity
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         }
