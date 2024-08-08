@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.beatbounce.History.HistoryActivity;
 import com.example.beatbounce.Home.HomeActivity;
+import com.example.beatbounce.Login.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -107,6 +108,11 @@ public class StudioPencarianActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.bottom_search:
+                    return true;
+                case R.id.botton_account:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
                     return true;
             }
             return false;

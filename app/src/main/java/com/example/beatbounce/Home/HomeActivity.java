@@ -69,12 +69,12 @@ public class HomeActivity extends AppCompatActivity {
         List<Integer> facilities = Arrays.asList(R.drawable.lighting, R.drawable.mushola, R.drawable.sound, R.drawable.wifi);
 
         List<Studio> studiosBesar = new ArrayList<>();
-        studiosBesar.add(new Studio(R.drawable.studio, "Studio A", "Rp 150.000 / Jam", "Owner1", facilities, genres, 4.5, "Bogor"));
-        studiosBesar.add(new Studio(R.drawable.studio, "Studio B", "Rp 200.000 / Jam", "Owner2", facilities, genres, 4.5, "Bogor"));
+        studiosBesar.add(new Studio(R.drawable.studio_dance_jazz, "Studio A", "Rp 150.000 / Jam", "Owner1", facilities, genres, 4.5, "Bogor"));
+        studiosBesar.add(new Studio(R.drawable.hiphop, "Studio B", "Rp 200.000 / Jam", "Owner2", facilities, genres, 4.5, "Bogor"));
         studiosBesar.add(new Studio(R.drawable.studio, "Studio C", "Rp 200.000 / Jam", "Owner3", facilities, genres, 4.4, "Bogor"));
-        studiosBesar.add(new Studio(R.drawable.studio, "Studio D", "Rp 150.000 / Jam", "Owner4", facilities, genres, 4.3, "Bogor"));
-        studiosBesar.add(new Studio(R.drawable.studio, "Studio E", "Rp 200.000 / Jam", "Owner5", facilities, genres, 4.9, "Bogor"));
-        studiosBesar.add(new Studio(R.drawable.studio, "Studio F", "Rp 200.000 / Jam", "Owner6", facilities, genres, 4.8, "Bogor"));
+        studiosBesar.add(new Studio(R.drawable.studio_dance_ballet, "Studio D", "Rp 150.000 / Jam", "Owner4", facilities, genres, 4.3, "Bogor"));
+        studiosBesar.add(new Studio(R.drawable.ballrom, "Studio E", "Rp 200.000 / Jam", "Owner5", facilities, genres, 4.9, "Bogor"));
+        studiosBesar.add(new Studio(R.drawable.modern_dance, "Studio F", "Rp 200.000 / Jam", "Owner6", facilities, genres, 4.8, "Bogor"));
 
         StudioAdapter adapterBesar = new StudioAdapter(studiosBesar);
         recyclerViewBesar.setAdapter(adapterBesar);
@@ -106,11 +106,11 @@ public class HomeActivity extends AppCompatActivity {
 
         List<CardItem> cardItemList = new ArrayList<>();
         cardItemList.add(new CardItem(R.drawable.studio, "Studio A", "Rp 150.000 / Jam"));
-        cardItemList.add(new CardItem(R.drawable.studio, "Studio B", "Rp 200.000 / Jam"));
-        cardItemList.add(new CardItem(R.drawable.studio, "Studio C", "Rp 200.000 / Jam"));
-        cardItemList.add(new CardItem(R.drawable.studio, "Studio A", "Rp 150.000 / Jam"));
-        cardItemList.add(new CardItem(R.drawable.studio, "Studio B", "Rp 200.000 / Jam"));
-        cardItemList.add(new CardItem(R.drawable.studio, "Studio C", "Rp 200.000 / Jam"));
+        cardItemList.add(new CardItem(R.drawable.ballrom, "Studio B", "Rp 200.000 / Jam"));
+        cardItemList.add(new CardItem(R.drawable.dance_jazz, "Studio C", "Rp 200.000 / Jam"));
+        cardItemList.add(new CardItem(R.drawable.hiphop, "Studio A", "Rp 150.000 / Jam"));
+        cardItemList.add(new CardItem(R.drawable.dance_jazz, "Studio B", "Rp 200.000 / Jam"));
+        cardItemList.add(new CardItem(R.drawable.modern_dance, "Studio C", "Rp 200.000 / Jam"));
 
         CardAdapter adapter = new CardAdapter(cardItemList);
         recyclerViewKecil.setAdapter(adapter);

@@ -10,6 +10,7 @@ import android.widget.Toolbar;
 
 import com.example.beatbounce.History.HistoryActivity;
 import com.example.beatbounce.Home.HomeActivity;
+import com.example.beatbounce.Login.ProfileActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -55,6 +56,11 @@ public class StudioFavoritActivity extends AppCompatActivity {
                     return true;
                 case R.id.bottom_search:
                     startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
+                case R.id.botton_account:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
                     return true;

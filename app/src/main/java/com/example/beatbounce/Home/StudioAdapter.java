@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,18 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
         holder.textViewPrice.setText(studio.getPrice());
         holder.textViewRating.setText(String.valueOf(studio.getRating()));
         holder.textViewLocation.setText(studio.getLocation());
+        holder.favoriteButton.setSelected(studio.isFavorite());
+
+        holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isSelected = !holder.favoriteButton.isSelected();
+                holder.favoriteButton.setSelected(isSelected);
+                studio.setFavorite(isSelected);
+                // Update only the favorite button state without affecting the entire item view
+                holder.favoriteButton.setBackgroundResource(isSelected ? R.drawable.baseline_favorite_red_24 : R.drawable.baseline_favorite_shadow_24);
+            }
+        });
     }
 
     @Override
@@ -54,6 +67,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
         public TextView textViewPrice;
         public TextView textViewRating;
         public TextView textViewLocation;
+        public Button favoriteButton;
 
         public StudioViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +76,7 @@ public class StudioAdapter extends RecyclerView.Adapter<StudioAdapter.StudioView
             textViewPrice = itemView.findViewById(R.id.priceText);
             textViewLocation = itemView.findViewById(R.id.locationText);
             textViewRating = itemView.findViewById(R.id.ratingText);
+            favoriteButton = itemView.findViewById(R.id.favorite_button_change);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

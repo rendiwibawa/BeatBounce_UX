@@ -11,6 +11,8 @@ public class Studio {
     private List<String> genres;
     private double rating;
     private String location;
+    private boolean isFavorite;
+
 
     public Studio(int imageResource, String name, String price, String owner, List<Integer> facilities, List<String> genres, double rating, String location) {
         this.imageResource = imageResource;
@@ -21,6 +23,7 @@ public class Studio {
         this.genres = genres;
         this.rating = rating;
         this.location = location;
+        this.isFavorite = false;
     }
 
     public int getImageResource() {
@@ -85,5 +88,12 @@ public class Studio {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

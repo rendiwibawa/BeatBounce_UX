@@ -26,6 +26,8 @@ public class HourListActivity extends AppCompatActivity {
     private List<Hour> currentBookingHoursList;
     private List<BookingDate> bookingList;
     private HourAdapter hourAdapter;
+    private TextView studioNameTextView;
+    private TextView studioAddressTextView;
 
     private boolean[] selectedHours;
 
@@ -33,6 +35,8 @@ public class HourListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_hour);
+        studioNameTextView = findViewById(R.id.studioNameTextView); // replace with your actual TextView id
+        studioAddressTextView = findViewById(R.id.studioAddressTextView);
 
         RecyclerView dateRecyclerView = findViewById(R.id.DateRecyclerView);
         dateRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -47,12 +51,17 @@ public class HourListActivity extends AppCompatActivity {
         }
 
 
+
         // Get data from Intent
         Intent intent1 = getIntent();
         int imageResId = intent1.getIntExtra("imageResId", -1);
         String title = intent1.getStringExtra("title");
         String location = intent1.getStringExtra("location");
         String rating = intent1.getStringExtra("rating");
+        String studioName = intent1.getStringExtra("title");
+
+        // Set studio name to TextView
+        studioNameTextView.setText(studioName);
 
         // Retrieve and clean price string from Intent
         String priceString = getIntent().getStringExtra("price");
@@ -72,15 +81,6 @@ public class HourListActivity extends AppCompatActivity {
 
         Button buttonShowSelected = findViewById(R.id.buttonShowSelected);
 
-        // Initialize hourList with some example data
-//        hourList = new ArrayList<>();
-//        hourList.add(new Hour("08:00 - 09:00", price, true));
-//        hourList.add(new Hour("09:00 - 10:00", price, true));
-//        hourList.add(new Hour("11:00 - 12:00", price, false));
-//
-//
-//        hourAdapter = new HourAdapter(hourList);
-//        hourRecyclerView.setAdapter(hourAdapter);
 
 //         Set up dates
         Random random = new Random();
@@ -126,8 +126,9 @@ public class HourListActivity extends AppCompatActivity {
                 // Update the data for the new date
                 currentBookingHoursList = hours;
                 hourAdapter.updateData(hours);
+                // Update the available addresses count
+                updateAvailableAddressesCount();
             }
-
         });
         dateRecyclerView.setAdapter(dateAdapter);
         if (bookingList.size() > 0) {
@@ -171,7 +172,7 @@ public class HourListActivity extends AppCompatActivity {
         // Find the switch
         Switch mySwitch = findViewById(R.id.switch_filter);
 
-// Set an OnCheckedChangeListener
+        // Set an OnCheckedChangeListener
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -194,6 +195,16 @@ public class HourListActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+    private void updateAvailableAddressesCount() {
+        int availableAddressesCount = 0;
+        for (Hour hour : currentBookingHoursList) {
+            if (hour.isAvailable()) {
+                availableAddressesCount++;
+            }
+        }
+        studioAddressTextView.setText(String.valueOf(availableAddressesCount)+" Jadwal tersedia");
     }
     private List<Hour> filterData(List<Hour> bookingList) {
         List<Hour> filteredList = new ArrayList<>();

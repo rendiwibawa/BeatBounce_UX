@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.beatbounce.Home.HomeActivity;
+import com.example.beatbounce.Login.ProfileActivity;
 import com.example.beatbounce.PembayaranPilihJam.Pembayaran1Activity;
 import com.example.beatbounce.R;
 import com.example.beatbounce.SpaceItemDecoration;
@@ -101,6 +102,12 @@ public class HistoryActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), StudioPencarianActivity.class));
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     finish();
+                    return true;
+                case R.id.botton_account:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    finish();
+                    return true;
             }
             return false;
         });
