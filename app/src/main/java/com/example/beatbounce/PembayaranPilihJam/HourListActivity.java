@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -27,6 +29,8 @@ public class HourListActivity extends AppCompatActivity {
     private List<BookingDate> bookingList;
     private HourAdapter hourAdapter;
 
+    private boolean[] selectedHours;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,7 @@ public class HourListActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Pilih Jadwal");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
 
         // Get data from Intent
         Intent intent1 = getIntent();
@@ -112,6 +117,8 @@ public class HourListActivity extends AppCompatActivity {
 //
         BookingDateAdapter dateAdapter = new BookingDateAdapter(bookingList);
 
+
+
         dateAdapter.setOnDateClickListener(new BookingDateAdapter.OnDateClickListener() {
             @Override
             public void onDateClick(List<Hour> hours) {
@@ -163,7 +170,41 @@ public class HourListActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_SELECTED_WATCHES);
             }
         });
+        // Find the switch
+        Switch mySwitch = findViewById(R.id.switch_filter);
 
+// Set an OnCheckedChangeListener
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The switch is checked
+                    // Filter the currentBookingHoursList to show only available hours
+                    List<Hour> availableHours = new ArrayList<>();
+                    for (Hour hour : currentBookingHoursList) {
+                        if (hour.isAvailable()) {
+                            availableHours.add(hour);
+                        }
+                    }
+                    // Update the adapter with the filtered hours
+                    hourAdapter.updateData(availableHours);
+                } else {
+                    // The switch is not checked
+                    // Show all hours
+                    hourAdapter.updateData(currentBookingHoursList);
+                }
+            }
+        });
+
+    }
+    private List<Hour> filterData(List<Hour> bookingList) {
+        List<Hour> filteredList = new ArrayList<>();
+        for (Hour item : bookingList) {
+            if (item.isAvailable()) {
+                filteredList.add(item);
+            }
+        }
+        return filteredList;
     }
 
     @Override
@@ -183,6 +224,10 @@ public class HourListActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private void updateHoursList(List<Hour> hours) {
+        selectedHours = new boolean[hours.size()]; // Initialize the array with the size of hours list
+        // Rest of your update logic...
     }
 
 }

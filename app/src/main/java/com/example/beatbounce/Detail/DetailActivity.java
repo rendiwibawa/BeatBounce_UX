@@ -29,7 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView textViewPriceDetail = findViewById(R.id.textViewPriceDetail);
         TextView textViewLocationDetail = findViewById(R.id.textViewLocationDetail);
         TextView textViewRatingDetail = findViewById(R.id.textViewRatingDetail);
-        FloatingActionButton fabBooking = findViewById(R.id.fabBooking);
+        FloatingActionButton fabBooking = findViewById(R.id.bookingButton);
 
         // Get data from Intent
         Intent intent = getIntent();
@@ -59,8 +59,6 @@ public class DetailActivity extends AppCompatActivity {
 
             bookingIntent.putExtra("imageResId", imageResId);
             bookingIntent.putExtra("title", title);
-            bookingIntent.putExtra("price", price);
-            bookingIntent.putExtra("location", location);
             bookingIntent.putExtra("rating", rating);
 
             startActivity(bookingIntent);
