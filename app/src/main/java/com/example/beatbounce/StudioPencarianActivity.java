@@ -154,19 +154,19 @@ public class StudioPencarianActivity extends AppCompatActivity {
         List<Studio> studios = new ArrayList<>();
 
         studios.add(new Studio(
-                "Studio Ballroom Dance - XBY",
-                R.drawable.studio_dance_jazz,
-                "Bekasi",
-                "150.000",
-                "4.1"
+                "Studio BaletRoom",
+                R.drawable.studio_dance_ballet,
+                "Berlina",
+                "355.000",
+                "4.9"
         ));
 
         studios.add(new Studio(
-                "TI Studio Dance for Ballet",
-                R.drawable.studio_dance_ballet,
+                "Hiphop Room Dance",
+                R.drawable.hiphop,
                 "Bekasi",
-                "345.000",
-                "4.3"
+                "250.000",
+                "4.8"
         ));
 
         return studios;

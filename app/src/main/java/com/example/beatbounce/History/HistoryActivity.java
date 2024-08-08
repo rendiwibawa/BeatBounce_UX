@@ -52,11 +52,16 @@ public class HistoryActivity extends AppCompatActivity {
         btnSelesai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Update data for "SELESAI" button
                 List<Studio> selesaiStudios = getSelesaiStudios();
                 studioAdapter.updateData(selesaiStudios);
                 recyclerView.setAdapter(studioAdapter); // Ensure RecyclerView uses the correct adapter
+
+                btnSelesai.setBackgroundResource(R.drawable.shape_button_selector);
+                btnSelesai.setTextColor(getResources().getColor(R.color.orange));
+
+                btnMenunggu.setBackgroundResource(R.drawable.shape_button_menunggu);
+                btnMenunggu.setTextColor(getResources().getColor(R.color.gray));
             }
         });
 
@@ -67,6 +72,12 @@ public class HistoryActivity extends AppCompatActivity {
                 List<Studio> menungguStudios = getMenungguStudios();
                 studioAdapterMenunggu.updateData(menungguStudios);
                 recyclerView.setAdapter(studioAdapterMenunggu); // Set RecyclerView adapter to studioAdapterMenunggu
+
+                btnMenunggu.setBackgroundResource(R.drawable.shape_button_selector);
+                btnMenunggu.setTextColor(getResources().getColor(R.color.orange));
+
+                btnSelesai.setBackgroundResource(R.drawable.shape_button_menunggu);
+                btnSelesai.setTextColor(getResources().getColor(R.color.gray));
             }
         });
 
