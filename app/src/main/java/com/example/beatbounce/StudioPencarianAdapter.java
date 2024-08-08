@@ -30,6 +30,11 @@ public class StudioPencarianAdapter extends RecyclerView.Adapter<StudioPencarian
         return new StudioViewHolder(view);
     }
 
+    public void updateData(List<Studio> newStudioList) {
+        this.studioList = newStudioList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull StudioViewHolder holder, int position) {
         Studio studio = studioList.get(position);

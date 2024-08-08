@@ -2,49 +2,15 @@
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".History.HistoryActivity">
-
-        <!-- Header with Back Button and Title -->
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="42dp">-->
-
-<!--            &lt;!&ndash; Button Back &ndash;&gt;-->
-<!--            <FrameLayout-->
-<!--                android:id="@+id/back_button_container"-->
-<!--                android:layout_width="25dp"-->
-<!--                android:layout_height="25dp"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:background="@drawable/button_back">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:background="@drawable/baseline_arrow_back_24"/>-->
-<!--            </FrameLayout>-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerInParent="true"-->
-<!--                android:text="Riwayat Pemesanan"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="20sp" />-->
-<!--        </RelativeLayout>-->
 
         <!-- Space between header and buttons -->
         <View
@@ -61,7 +27,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="start|center_vertical"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="45dp"
                 android:background="@drawable/baseline_search_24"/>
             <EditText
                 android:id="@+id/editTextDanceBogor"
@@ -69,7 +35,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:hint="Dance Bogor"
-                android:paddingStart="60dp"
+                android:paddingStart="53dp"
                 android:background="@drawable/search_bar"/>
         </FrameLayout>
 
@@ -97,6 +63,7 @@
                         android:padding="4dp"/>
 
                     <Button
+                        android:id="@+id/semua"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_button_selector"
@@ -120,6 +87,7 @@
                         android:padding="4dp"/>
 
                     <Button
+                        android:id="@+id/terdekat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_button_selector_menunggu"
@@ -142,6 +110,7 @@
                         android:padding="4dp"/>
 
                     <Button
+                        android:id="@+id/termurah"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shape_button_selector_menunggu"
@@ -156,31 +125,34 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="51.82dp" />
+            android:layout_height="11.82dp" />
 
         <!-- RecyclerView for Main Boxes -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_studios"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginTop="10dp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="51.82dp" />
     </LinearLayout>
-</ScrollView>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-android:id="@+id/bottomNavigation"
-android:layout_width="match_parent"
-android:layout_height="69dp"
-android:layout_gravity="bottom"
-android:layout_marginEnd="20dp"
-android:layout_marginStart="20dp"
-android:layout_marginBottom="10dp"
-android:background="@drawable/bottom_background"
-android:elevation="2dp"
-app:itemIconSize="30dp"
-app:itemIconTint="@drawable/item_selector"
-app:itemRippleColor="@color/default_color"
-app:labelVisibilityMode="unlabeled"
-app:menu="@menu/bottom_menu" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@color/default_color"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
