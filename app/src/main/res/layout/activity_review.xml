@@ -32,13 +32,21 @@
                     android:outAnimation="@android:anim/slide_out_right">
 
                     <ImageView
-                        android:id="@+id/imageViewDetail"
+                        android:id="@+id/viewImage1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_jazz_studio" />
 
                     <ImageView
+                        android:id="@+id/viewImage2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/studio" />
+
+                    <ImageView
+                        android:id="@+id/viewImage3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"

@@ -54,8 +54,6 @@ public class DetailActivity extends AppCompatActivity {
 
             bookingIntent.putExtra("imageResId", imageResId);
             bookingIntent.putExtra("title", title);
-            bookingIntent.putExtra("price", price);
-            bookingIntent.putExtra("location", location);
             bookingIntent.putExtra("rating", rating);
 
             startActivity(bookingIntent);
