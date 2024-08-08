@@ -113,12 +113,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="61dp"
                             android:background="@drawable/spinner_background">
-                            <ImageView
-                                android:layout_marginLeft="12dp"
-                                android:layout_gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/gopay"/>
+                            
 
                             <TextView
                                 android:id="@+id/paymentMethod"
@@ -229,7 +224,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="40dp"
-                        android:background="@drawable/button"
+                        android:background="@drawable/pembayaran_bg"
                         android:gravity="center_vertical"
                         android:orientation="vertical"
                         android:padding="10dp">
@@ -263,7 +258,7 @@
                                     android:textAppearance="?attr/textAppearanceBody1" />
 
                                 <TextView
-                                    android:textSize="12dp"
+                                    android:textSize="15dp"
                                     android:id="@+id/paymentWatchPrice"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
@@ -278,11 +273,11 @@
 
                             <Button
                                 android:id="@+id/btnSelesai"
-                                android:layout_width="wrap_content"
+                                android:layout_width="113dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
-                                android:textColor="@color/white"
-                                android:background="@drawable/bottom_background"
+                                android:textColor="@drawable/button_text_color"
+                                android:background="@drawable/shape_button_selector"
                                 android:text="Selesai" />
                         </LinearLayout>
 
